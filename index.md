@@ -1,191 +1,1115 @@
-<!-- ============================================================ -->
-<!--  GITHUB PROFILE README  |  Modern Engineering / Cyber-Tech  -->
-<!--  ✏️  Szukaj [EDIT] aby podmienić swoje dane                 -->
-<!-- ============================================================ -->
-
-
-<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
-
-<div align="center">
-
-![header](https://capsule-render.vercel.app/api?type=waving&color=0,0d1b2a,1b4332&height=220&section=header&text=SP9XXX&fontSize=80&fontColor=00ff88&fontAlignY=42&desc=Mechatronics%20%7C%20RF%20%26%20Radar%20%7C%20Embedded%20Systems&descAlignY=62&descColor=8affc1)
-
-<!-- [EDIT] Zmień tekst &text= na swój nick lub callsign -->
-
-</div>
-
-
-<!-- ═══════════════════════ STATUS BADGES ════════════════════════ -->
-
-<div align="center">
-
-![](https://img.shields.io/badge/STATUS-ONLINE-00ff88?style=flat-square&labelColor=0d1b2a)
-![](https://img.shields.io/badge/Mechatronics-Student-1b4332?style=flat-square&labelColor=0d1b2a)
-![](https://img.shields.io/badge/HAM_Radio-Active_Operator-1b4332?style=flat-square&labelColor=0d1b2a)
-![](https://img.shields.io/badge/Location-Poland_PL-004e2b?style=flat-square&labelColor=0d1b2a)
-
-<!-- [EDIT] Zmień YOUR_GITHUB_USERNAME na swój login -->
-![](https://komarev.com/ghpvc/?username=YOUR_GITHUB_USERNAME&color=00ff88&style=flat-square&label=PROFILE+VIEWS)
-
-</div>
-
----
-
-<!-- ════════════════════ SYSTEM BOOT TERMINAL ════════════════════ -->
-
-```
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃  ◉ SYSTEM BOOT — SIGNAL ACQUIRED                ┃
-┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-┃  Operator  :  SP9XXX                   [EDIT]   ┃
-┃  Role      :  Mechatronics & RF Enthusiast      ┃
-┃  Location  :  Poland                            ┃
-┃  Signal    :  Always transmitting               ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-```
-
-> Fascynuje mnie punkt styku **mechaniki, elektroniki i oprogramowania**.
-> Zasada nr 1: *nieudany eksperyment = cenna lekcja inżynierska.*
-
----
-
-<!-- ══════════════════════ ACTIVE PROJECTS ════════════════════════ -->
-
-## 🚀 Active Projects
-
-<!-- [EDIT] Podmień (#) na linki do swoich repozytoriów -->
-
-| | Projekt | Opis | Stack |
-|--|---------|------|-------|
-| 🛰️ | **[Radar / RF Research](#)** | Eksploracja SDR i systemów radarowych | `Python` `SDR` `RF` |
-| ✈️ | **[UAV Systems](#)** | Bezzałogowe statki powietrzne | `C++` `Embedded` |
-| 🔧 | **[Embedded Prototyping](#)** | Mikrokontrolery, czujniki, aktuatory | `Arduino` `C++` `PCB` |
-| 🔬 | **[Jet Propulsion](#)** | Mały silnik odrzutowy — koncepcja i CFD | `Ansys` `Fusion 360` |
-
----
-
-<!-- ══════════════════════ TECH STACK ══════════════════════════════ -->
-
-## 🛠️ Tech Stack
-
-**Programming**
-
-![Python](https://img.shields.io/badge/Python-0d1b2a?style=flat-square&logo=python&logoColor=00ff88)
-![C++](https://img.shields.io/badge/C++-0d1b2a?style=flat-square&logo=cplusplus&logoColor=00ff88)
-![C#](https://img.shields.io/badge/C%23-0d1b2a?style=flat-square&logo=dotnet&logoColor=00ff88)
-![SQL](https://img.shields.io/badge/SQL-0d1b2a?style=flat-square&logo=postgresql&logoColor=00ff88)
-
-**Electronics & Hardware**
-
-![Arduino](https://img.shields.io/badge/Arduino-0d1b2a?style=flat-square&logo=arduino&logoColor=00ff88)
-![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-0d1b2a?style=flat-square&logo=raspberrypi&logoColor=00ff88)
-![KiCad](https://img.shields.io/badge/KiCad-0d1b2a?style=flat-square&logo=kicad&logoColor=8affc1)
-![Altium](https://img.shields.io/badge/Altium_Designer-0d1b2a?style=flat-square&logoColor=8affc1)
-![Siemens PLC](https://img.shields.io/badge/Siemens_PLC-0d1b2a?style=flat-square&logo=siemens&logoColor=8affc1)
-
-**CAD & Simulation**
-
-![Fusion 360](https://img.shields.io/badge/Fusion_360-0d1b2a?style=flat-square&logo=autodesk&logoColor=00ff88)
-![AutoCAD](https://img.shields.io/badge/AutoCAD-0d1b2a?style=flat-square&logo=autodesk&logoColor=00ff88)
-![Ansys](https://img.shields.io/badge/Ansys_Fluent-0d1b2a?style=flat-square&logo=ansys&logoColor=8affc1)
-
-**Daily Tools**
-
-![VS Code](https://img.shields.io/badge/VS_Code-0d1b2a?style=flat-square&logo=visualstudiocode&logoColor=00ff88)
-![Linux](https://img.shields.io/badge/Linux-0d1b2a?style=flat-square&logo=linux&logoColor=00ff88)
-![Git](https://img.shields.io/badge/Git-0d1b2a?style=flat-square&logo=git&logoColor=00ff88)
-![GNU Radio](https://img.shields.io/badge/GNU_Radio-0d1b2a?style=flat-square&logoColor=8affc1)
-
----
-
-<!-- ══════════════════════ GITHUB STATS ═══════════════════════════ -->
-
-## 📊 GitHub Stats
-
-<!-- [EDIT] Zamień YOUR_GITHUB_USERNAME na swój login (3 miejsca) -->
-
-<div align="center">
-
-![Stats](https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&bg_color=0d1b2a&title_color=00ff88&icon_color=00ff88&text_color=8affc1&border_color=1b4332&count_private=true)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&bg_color=0d1b2a&title_color=00ff88&text_color=8affc1&border_color=1b4332&langs_count=6)
-
-![Streak](https://streak-stats.demolab.com?user=YOUR_GITHUB_USERNAME&background=0d1b2a&border=1b4332&ring=00ff88&fire=8affc1&currStreakLabel=00ff88&sideLabels=8affc1&dates=8affc1&currStreakNum=ffffff&sideNums=ffffff)
-
-</div>
-
----
-
-<!-- ══════════════════════ SNAKE ANIMATION ════════════════════════ -->
-
-## 🐍 Contribution Activity
-
-<!-- [EDIT] Zamień YOUR_GITHUB_USERNAME na swój login (2 miejsca) -->
-<!-- Setup snake: utwórz .github/workflows/snake.yml — instrukcja na dole pliku -->
-
-<div align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME/output/github-contribution-grid-snake-dark.svg"/>
-  <img alt="snake" src="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME/output/github-contribution-grid-snake.svg"/>
-</picture>
-</div>
-
----
-
-<!-- ══════════════════════ BEYOND THE CODE ════════════════════════ -->
-
-## 🎯 Beyond The Code
-
-📻 **HAM Radio** &nbsp;|&nbsp; 🥋 **Sporty walki** &nbsp;|&nbsp; ♟️ **Szachy** &nbsp;|&nbsp; 🚴 **Kolarstwo** &nbsp;|&nbsp; 🍜 **Foodie**
-
----
-
-<!-- ══════════════════════ CONTACT ════════════════════════════════ -->
-
-## 📫 Contact
-
-<!-- [EDIT] Podmień linki na swoje -->
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0d1b2a?style=for-the-badge&logo=linkedin&logoColor=00ff88)](https://linkedin.com/in/YOUR_PROFILE)
-[![Email](https://img.shields.io/badge/Email-Write_Me-0d1b2a?style=for-the-badge&logo=gmail&logoColor=00ff88)](mailto:YOUR@EMAIL.COM)
-[![QRZ](https://img.shields.io/badge/QRZ.com-HAM_Radio-0d1b2a?style=for-the-badge&logoColor=00ff88)](https://www.qrz.com/db/YOUR_CALLSIGN)
-
-</div>
-
-<br/>
-
-<div align="center">
-
-*„Zawsze w ruchu – między teorią a praktyką."*
-
-![footer](https://capsule-render.vercel.app/api?type=waving&color=0,1b4332,0d1b2a&height=120&section=footer)
-
-</div>
-
-
-<!-- ============================================================ -->
-<!--  SNAKE SETUP — utwórz plik .github/workflows/snake.yml:     -->
-<!--                                                              -->
-<!--  name: Snake                                                 -->
-<!--  on:                                                         -->
-<!--    schedule: [{cron: "0 0 * * *"}]                          -->
-<!--    workflow_dispatch:                                        -->
-<!--  jobs:                                                       -->
-<!--    snake:                                                    -->
-<!--      runs-on: ubuntu-latest                                  -->
-<!--      steps:                                                  -->
-<!--        - uses: Platane/snk@v3                               -->
-<!--          with:                                               -->
-<!--            github_user_token: ${{secrets.GITHUB_TOKEN}}     -->
-<!--            outputs: |                                        -->
-<!--              dist/github-contribution-grid-snake.svg        -->
-<!--              dist/github-contribution-grid-snake-dark.svg?palette=github-dark -->
-<!--        - uses: crazy-max/ghaction-github-pages@v3           -->
-<!--          with:                                               -->
-<!--            target_branch: output                             -->
-<!--            build_dir: dist                                   -->
-<!--          env:                                               -->
-<!--            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}          -->
-<!-- ============================================================ -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wojciech Nikiel — Mechatronics & RF</title> <!-- [EDIT] page title -->
+
+  <!-- Google Fonts: JetBrains Mono + Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ══════════════════════════════════════════ */
+    :root {
+      --bg:        #0d1b2a;      /* [EDIT] main background */
+      --bg2:       #0a1520;
+      --bg3:       #111f30;
+      --mint:      #00ff88;      /* [EDIT] accent color */
+      --mint-dim:  #00cc6a;
+      --mint-glow: rgba(0,255,136,0.18);
+      --mint-glow2:rgba(0,255,136,0.06);
+      --white:     #e8f4f0;
+      --gray:      #6b8fa8;
+      --gray2:     #3a5468;
+      --border:    rgba(0,255,136,0.15);
+      --ff-mono:   'JetBrains Mono', monospace;
+      --ff-body:   'Syne', sans-serif;
+      --radius:    6px;
+      --transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--ff-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ══ CUSTOM SCROLLBAR ══ */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--mint-dim); border-radius: 99px; }
+
+    /* ══ CUSTOM CURSOR ══ */
+    #cursor {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--mint);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+      transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+      mix-blend-mode: screen;
+    }
+    #cursor-dot {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 4px; height: 4px;
+      background: var(--mint);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+    }
+    body:hover #cursor { opacity: 1; }
+    a:hover ~ #cursor, button:hover ~ #cursor { width: 28px; height: 28px; background: var(--mint-glow); }
+
+    /* ══ SCANLINES OVERLAY ══ */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 1000;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+    }
+
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(13,27,42,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--ff-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo {
+      color: var(--mint);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--gray); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1px; background: var(--mint);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .nav-links a:hover { color: var(--mint); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Radar canvas background */
+    #radarCanvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0.55;
+    }
+
+    /* Grid lines behind */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.45;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--mint);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      animation: fadeInDown 0.8s ease both;
+    }
+
+    .hero-name {
+      font-family: var(--ff-mono);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+    .hero-name .accent { color: var(--mint); }
+
+    .hero-typewriter {
+      font-family: var(--ff-mono);
+      font-size: clamp(0.9rem, 2vw, 1.15rem);
+      color: var(--gray);
+      margin: 1.2rem auto 2.2rem;
+      letter-spacing: 0.04em;
+      animation: fadeInUp 0.9s 0.4s ease both;
+      min-height: 1.8em;
+    }
+    .hero-typewriter .tw-cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--mint);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    .hero-socials {
+      display: flex; gap: 1rem; justify-content: center;
+      animation: fadeInUp 0.9s 0.6s ease both;
+      flex-wrap: wrap;
+    }
+    .hero-socials a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--ff-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--gray2);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .hero-socials a:hover {
+      color: var(--mint); border-color: var(--mint);
+      box-shadow: 0 0 18px var(--mint-glow), inset 0 0 18px var(--mint-glow2);
+      transform: translateY(-2px);
+    }
+    .hero-socials svg { width: 15px; height: 15px; fill: currentColor; }
+
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-family: var(--ff-mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; color: var(--gray2);
+      text-transform: uppercase;
+      animation: fadeIn 1.2s 1s ease both;
+    }
+    .scroll-hint .line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--mint), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION SHARED
+    ══════════════════════════════════════════ */
+    section { padding: 7rem 0; position: relative; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--mint);
+    }
+
+    .section-title {
+      font-family: var(--ff-mono);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-title .accent { color: var(--mint); }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
+    }
+    .reveal.visible {
+      opacity: 1; transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ══════════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════════ */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: #a8c4d4;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--white); font-weight: 600; }
+
+    .about-hobby {
+      margin-top: 1.8rem;
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .hobby-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.4); }
+    .stat-card:hover::before { opacity: 1; }
+    .stat-num {
+      font-family: var(--ff-mono);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--mint);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════════════
+       SKILLS
+    ══════════════════════════════════════════ */
+    #skills { background: var(--bg2); }
+    #skills::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    #skills::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      group: skill;
+    }
+    .skill-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--mint-glow2), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .skill-card:hover {
+      border-color: var(--mint);
+      box-shadow: 0 0 24px var(--mint-glow), 0 8px 32px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+    }
+    .skill-card:hover::after { opacity: 1; }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.9rem;
+      display: block;
+      position: relative; z-index: 1;
+    }
+    .skill-category {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 0.5rem;
+      position: relative; z-index: 1;
+    }
+    .skill-name {
+      font-family: var(--ff-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      position: relative; z-index: 1;
+    }
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      position: relative; z-index: 1;
+    }
+    .skill-tags span {
+      font-family: var(--ff-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.05em;
+      color: var(--gray);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--gray2);
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       PROJECTS
+    ══════════════════════════════════════════ */
+    #projects { background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+      display: flex; flex-direction: column;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--mint), var(--mint-dim));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0,255,136,0.4);
+      box-shadow: 0 0 40px var(--mint-glow), 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-num {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--mint);
+      margin-bottom: 1rem;
+    }
+    .project-icon-wrap {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-family: var(--ff-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: #7a9ab5;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.4rem;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .project-tags span {
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--mint-dim);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════ */
+    #contact { background: var(--bg2); }
+
+    .contact-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner .section-label { justify-content: center; }
+    .contact-inner .section-label::before { display: none; }
+
+    .contact-quote {
+      font-family: var(--ff-mono);
+      font-size: 1rem;
+      color: var(--gray);
+      border-left: 2px solid var(--mint);
+      padding: 0.8rem 1.4rem;
+      text-align: left;
+      margin: 0 auto 3rem;
+      max-width: 520px;
+      letter-spacing: 0.02em;
+      font-style: italic;
+    }
+
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--ff-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid var(--gray2);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .contact-link svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+    .contact-link:hover {
+      color: var(--mint); border-color: var(--mint);
+      box-shadow: 0 0 22px var(--mint-glow), inset 0 0 22px var(--mint-glow2);
+      transform: translateY(-3px);
+    }
+
+    .contact-divider {
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-email-big {
+      font-family: var(--ff-mono);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .contact-email-big:hover {
+      color: var(--mint);
+      border-color: var(--mint);
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 2.5rem;
+      text-align: center;
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gray2);
+    }
+    footer span { color: var(--mint); }
+
+    /* ══════════════════════════════════════════
+       KEYFRAMES
+    ══════════════════════════════════════════ */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:none} }
+    @keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+    @keyframes scrollLine {
+      0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+      50%  { opacity:1; transform:scaleY(1); transform-origin:top; }
+      100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      section { padding: 5rem 0; }
+      .container { padding: 0 1.4rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      body { cursor: auto; }
+      #cursor, #cursor-dot { display: none; }
+    }
+
+    /* glitch flicker for hero name */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute; left: 0; top: 0;
+      width: 100%;
+      opacity: 0;
+    }
+    .glitch::before {
+      color: #00ff88;
+      clip-path: polygon(0 0,100% 0,100% 35%,0 35%);
+      transform: translate(-2px, 0);
+      animation: glitch1 6s 2s infinite;
+    }
+    .glitch::after {
+      color: #ff3355;
+      clip-path: polygon(0 65%,100% 65%,100% 100%,0 100%);
+      transform: translate(2px, 0);
+      animation: glitch2 6s 2s infinite;
+    }
+    @keyframes glitch1 {
+      0%,94%,100%{opacity:0;transform:translate(0,0)}
+      95%{opacity:0.7;transform:translate(-3px,0)}
+      97%{opacity:0;transform:translate(0,0)}
+    }
+    @keyframes glitch2 {
+      0%,94%,100%{opacity:0;transform:translate(0,0)}
+      95%{opacity:0.5;transform:translate(3px,1px)}
+      97%{opacity:0;transform:translate(0,0)}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav>
+    <a class="nav-logo" href="#hero">WN<span>://</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">01_about</a></li>
+      <li><a href="#skills">02_skills</a></li>
+      <li><a href="#projects">03_projects</a></li>
+      <li><a href="#contact">04_contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <canvas id="radarCanvas"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-tag">System online — Poland 🇵🇱</div> <!-- [EDIT] location tag -->
+
+      <h1 class="hero-name">
+        <span class="glitch" data-text="Wojciech">Wojciech</span><br/>
+        <span class="accent glitch" data-text="Nikiel">Nikiel</span> <!-- [EDIT] name -->
+      </h1>
+
+      <p class="hero-typewriter">
+        <span id="tw-text"></span><span class="tw-cursor"></span>
+      </p>
+
+      <div class="hero-socials">
+        <!-- GitHub -->
+        <a href="https://github.com/V1odek" target="_blank" rel="noopener"> <!-- [EDIT] github -->
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener"> <!-- [EDIT] linkedin -->
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+          LinkedIn
+        </a>
+        <!-- Email -->
+        <a href="mailto:wojtek.nikiel73@gmail.com"> <!-- [EDIT] email -->
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <div class="section-label">01 — About</div>
+          <h2 class="section-title">Inżynier<br/>w <span class="accent">akcji.</span></h2>
+          <!-- [EDIT] about text -->
+          <div class="about-text">
+            <p>Student mechatroniki z pasją do <strong>systemów RF i radarowych</strong>. Łączę świat hardware'u z zaawansowanym firmware'm — od projektowania PCB, przez programowanie mikrokontrolerów, po analizę sygnałów radiowych przy użyciu SDR.</p>
+            <p>Interesuję się <strong>bezzałogowymi statkami powietrznymi</strong>, napędem odrzutowym i symulacjami CFD. Wierzę, że najlepsze projekty rodzą się na granicy teorii i fizycznego prototypu.</p>
+          </div>
+          <div class="about-hobby">
+            <!-- [EDIT] hobbies -->
+            <span class="hobby-tag">📻 HAM Radio</span>
+            <span class="hobby-tag">🥋 Sporty walki</span>
+            <span class="hobby-tag">♟️ Szachy</span>
+            <span class="hobby-tag">🚴 Kolarstwo</span>
+          </div>
+        </div>
+
+        <div class="about-stats reveal reveal-delay-2">
+          <!-- [EDIT] stats -->
+          <div class="stat-card reveal reveal-delay-1">
+            <div class="stat-num">4+</div>
+            <div class="stat-label">Języki programowania</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-2">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Projekty badawcze</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-3">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Narzędzia CAD/EDA</div>
+          </div>
+          <div class="stat-card reveal reveal-delay-4">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Ciekawość</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══ -->
+  <section id="skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">02 — Skills</div>
+        <h2 class="section-title">Toolstack &amp;<br/><span class="accent">Technologie.</span></h2>
+      </div>
+      <div class="skills-grid">
+        <!-- [EDIT] skills cards -->
+        <div class="skill-card reveal reveal-delay-1">
+          <span class="skill-icon">💻</span>
+          <div class="skill-category">Programowanie</div>
+          <div class="skill-name">Languages</div>
+          <div class="skill-tags">
+            <span>Python</span><span>C++</span><span>C#</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <span class="skill-icon">🔌</span>
+          <div class="skill-category">Hardware</div>
+          <div class="skill-name">Embedded</div>
+          <div class="skill-tags">
+            <span>Arduino</span><span>Raspberry Pi</span><span>Siemens PLC</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-3">
+          <span class="skill-icon">🎛️</span>
+          <div class="skill-category">EDA / PCB</div>
+          <div class="skill-name">Design</div>
+          <div class="skill-tags">
+            <span>KiCad</span><span>Altium</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-4">
+          <span class="skill-icon">📡</span>
+          <div class="skill-category">RF / Radio</div>
+          <div class="skill-name">Signal Proc.</div>
+          <div class="skill-tags">
+            <span>SDR</span><span>GNU Radio</span><span>Radar Sys.</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <span class="skill-icon">🧊</span>
+          <div class="skill-category">CAD</div>
+          <div class="skill-name">Modelling</div>
+          <div class="skill-tags">
+            <span>Fusion 360</span><span>AutoCAD</span><span>Inventor</span>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <span class="skill-icon">🌊</span>
+          <div class="skill-category">Simulation</div>
+          <div class="skill-name">CFD</div>
+          <div class="skill-tags">
+            <span>Ansys Fluent</span><span>CFD Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ══ -->
+  <section id="projects">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">03 — Projects</div>
+        <h2 class="section-title">Wybrane<br/><span class="accent">Projekty.</span></h2>
+      </div>
+      <div class="projects-grid">
+        <!-- [EDIT] project cards -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-num">PROJECT_01</div>
+          <div class="project-icon-wrap">📡</div>
+          <div class="project-title">Radar / RF Research</div>
+          <div class="project-desc">Badania nad systemami radarowymi z wykorzystaniem SDR. Analiza i przetwarzanie sygnałów, implementacja algorytmów detekcji w GNU Radio.</div>
+          <div class="project-tags">
+            <span>SDR</span><span>GNU Radio</span><span>Signal Analysis</span><span>Python</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-num">PROJECT_02</div>
+          <div class="project-icon-wrap">🚁</div>
+          <div class="project-title">UAV Systems</div>
+          <div class="project-desc">Projektowanie i budowa platform UAV — od aerodynamiki i doboru komponentów po układy sterowania lotem i integrację avioniki.</div>
+          <div class="project-tags">
+            <span>Fusion 360</span><span>Flight Control</span><span>C++</span><span>PCB</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-num">PROJECT_03</div>
+          <div class="project-icon-wrap">🔬</div>
+          <div class="project-title">Embedded Prototyping</div>
+          <div class="project-desc">Projektowanie niestandardowych płytek PCB, programowanie niskopoziomowego firmware dla mikrokontrolerów ARM i AVR.</div>
+          <div class="project-tags">
+            <span>KiCad</span><span>Altium</span><span>Arduino</span><span>Raspberry Pi</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-num">PROJECT_04</div>
+          <div class="project-icon-wrap">🔥</div>
+          <div class="project-title">Jet Propulsion</div>
+          <div class="project-desc">Koncepcja i symulacja miniaturowego silnika odrzutowego. Optymalizacja przepływu spalin przy użyciu Ansys Fluent CFD.</div>
+          <div class="project-tags">
+            <span>Ansys Fluent</span><span>CFD</span><span>AutoCAD</span><span>Thermodynamics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner reveal">
+        <div class="section-label">04 — Contact</div>
+        <h2 class="section-title">Nawiąż<br/><span class="accent">Kontakt.</span></h2>
+
+        <!-- [EDIT] quote -->
+        <blockquote class="contact-quote">
+          „Zawsze w ruchu – między teorią a praktyką."
+        </blockquote>
+
+        <div class="contact-links">
+          <!-- [EDIT] contact links -->
+          <a class="contact-link" href="https://github.com/V1odek" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <div class="contact-divider"></div>
+        <a class="contact-email-big" href="mailto:wojtek.nikiel73@gmail.com"> <!-- [EDIT] email -->
+          wojtek.nikiel73@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <span>WN</span> © 2025 Wojciech Nikiel — Mechatronics &amp; RF <!-- [EDIT] year/name -->
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════ -->
+  <script>
+    /* ── CURSOR ── */
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursor-dot');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cx += (mx - cx) * 0.18;
+      cy += (my - cy) * 0.18;
+      cursor.style.left = cx + 'px';
+      cursor.style.top  = cy + 'px';
+      cursorDot.style.left = mx + 'px';
+      cursorDot.style.top  = my + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '30px'; cursor.style.height = '30px';
+        cursor.style.background = 'rgba(0,255,136,0.15)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '14px'; cursor.style.height = '14px';
+        cursor.style.background = 'transparent';
+      });
+    });
+
+    /* ── RADAR CANVAS ── */
+    (function() {
+      const canvas = document.getElementById('radarCanvas');
+      const ctx    = canvas.getContext('2d');
+      let W, H, cx, cy, R, angle = 0;
+      const RINGS = 5;
+      const SWEEP_LEN = Math.PI * 0.55; // sweep arc length
+      const BLIPS = [];
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+        cx = W / 2; cy = H / 2;
+        R  = Math.min(W, H) * 0.44;
+        initBlips();
+      }
+
+      function initBlips() {
+        BLIPS.length = 0;
+        // [EDIT] number of radar blips
+        for (let i = 0; i < 12; i++) {
+          const r   = (0.2 + Math.random() * 0.75) * R;
+          const a   = Math.random() * Math.PI * 2;
+          BLIPS.push({ r, a, life: 0, maxLife: 60 + Math.random() * 80 });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        /* rings */
+        for (let i = 1; i <= RINGS; i++) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, R * (i / RINGS), 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(0,255,136,${0.08 + i * 0.025})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+
+        /* crosshairs */
+        ctx.strokeStyle = 'rgba(0,255,136,0.07)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx - R*0.71, cy - R*0.71); ctx.lineTo(cx + R*0.71, cy + R*0.71); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx + R*0.71, cy - R*0.71); ctx.lineTo(cx - R*0.71, cy + R*0.71); ctx.stroke();
+
+        /* sweep gradient */
+        const grad = ctx.createConicalGradient
+          ? null /* not widely supported */
+          : null;
+
+        // Manual sweep via arc fill
+        const sweepGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+        sweepGrad.addColorStop(0,   'rgba(0,255,136,0.18)');
+        sweepGrad.addColorStop(0.5, 'rgba(0,255,136,0.07)');
+        sweepGrad.addColorStop(1,   'rgba(0,255,136,0)');
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, R, angle - SWEEP_LEN, angle, false);
+        ctx.closePath();
+        ctx.fillStyle = sweepGrad;
+        ctx.fill();
+
+        /* sweep line */
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * R, cy + Math.sin(angle) * R);
+        ctx.strokeStyle = 'rgba(0,255,136,0.8)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.restore();
+
+        /* blips */
+        BLIPS.forEach(b => {
+          // activate when sweep passes over blip's angle
+          const da = ((angle - b.a) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+          if (da < 0.15 && b.life === 0) b.life = b.maxLife;
+          if (b.life > 0) {
+            const px = cx + Math.cos(b.a) * b.r;
+            const py = cy + Math.sin(b.a) * b.r;
+            const alpha = b.life / b.maxLife;
+            ctx.beginPath();
+            ctx.arc(px, py, 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,255,136,${alpha * 0.9})`;
+            ctx.shadowColor = '#00ff88';
+            ctx.shadowBlur  = 8 * alpha;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            b.life--;
+            if (b.life === 0) {
+              // reset with slight position drift
+              b.r = (0.2 + Math.random() * 0.75) * R;
+              b.a = Math.random() * Math.PI * 2;
+              b.maxLife = 60 + Math.random() * 80;
+            }
+          }
+        });
+
+        /* center dot */
+        ctx.beginPath();
+        ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ff88';
+        ctx.shadowColor = '#00ff88';
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        angle += 0.018; // [EDIT] radar rotation speed
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      draw();
+    })();
+
+    /* ── TYPEWRITER ── */
+    (function() {
+      // [EDIT] typewriter phrases
+      const phrases = [
+        'Mechatronics Student & RF Enthusiast',
+        'SDR · GNU Radio · Radar Systems',
+        'PCB Design · Embedded Firmware',
+        'UAV · Jet Propulsion · CFD',
+        'HAM Radio Operator 📻',
+      ];
+      const el = document.getElementById('tw-text');
+      let pi = 0, ci = 0, deleting = false, wait = 0;
+      function type() {
+        const phrase = phrases[pi];
+        if (!deleting) {
+          el.textContent = phrase.slice(0, ++ci);
+          if (ci === phrase.length) { deleting = true; wait = 90; }
+        } else {
+          if (wait-- > 0) { setTimeout(type, 30); return; }
+          el.textContent = phrase.slice(0, --ci);
+          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; wait = 0; }
+        }
+        setTimeout(type, deleting ? 30 : 60);
+      }
+      setTimeout(type, 800);
+    })();
+
+    /* ── SCROLL REVEAL ── */
+    (function() {
+      const els = document.querySelectorAll('.reveal');
+      const io  = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    /* ── SMOOTH SCROLL for nav links ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
