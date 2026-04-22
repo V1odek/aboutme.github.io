@@ -667,13 +667,24 @@
       97%{opacity:0;transform:translate(0,0)}
     }
     .hero-photo {
-  width: 140px;
-  height: 140px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
-  border: 2px solid #00ff88;
-  box-shadow: 0 0 25px rgba(0,255,136,0.3);
+
+  border-radius: 12px; 
+  
+  margin: 1.5rem auto 0;
+  display: block;
+
+  border: 2px solid var(--mint);
+  box-shadow: 0 0 25px rgba(0,255,136,0.25);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(0,255,136,0.4);
 }
   </style>
 </head>
@@ -707,6 +718,7 @@
         <span class="glitch" data-text="Wojciech">Wojciech</span><br/>
         <span class="accent glitch" data-text="Nikiel">Nikiel</span> <!-- [EDIT] name -->
       </h1>
+      <img src="7385964d-d062-4ee9-8f44-76bc193bfdb6.jpg" alt="Moje zdjęcie" class="hero-photo">
 
       <p class="hero-typewriter">
         <span id="tw-text"></span><span class="tw-cursor"></span>
