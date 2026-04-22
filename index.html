@@ -3,774 +3,767 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wojciech Nikiel — Mechatronics & RF</title>
+  <title>Wojciech Nikiel — Mechatronics & RF</title> <!-- [EDIT] page title -->
 
-  <!--
-    TYPOGRAPHY DECISION: DM Sans for UI + DM Mono for code/labels.
-    DM Sans has excellent legibility at all sizes and a slightly technical feel
-    that suits an engineering portfolio without feeling generic.
-    DM Mono adds contrast for tags/labels without needing a completely separate aesthetic.
-  -->
+  <!-- Google Fonts: JetBrains Mono + Syne -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─────────────────────────────────────────────
-       DESIGN TOKENS
-       All colors, spacing, and type are defined here.
-       Changing accent = changing one variable.
-    ───────────────────────────────────────────── */
+    /* ══════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ══════════════════════════════════════════ */
     :root {
-      /* Backgrounds — pure white + very light gray for alternating sections */
-      --bg-white:   #FFFFFF;
-      --bg-surface: #F8F9FA;
-      --bg-subtle:  #F1F5F2;   /* faint green-tinted surface for cards */
-
-      /* Text — near-black prevents harsh contrast while staying WCAG AA */
-      --text-primary:   #1A1A1A;
-      --text-secondary: #6B7280;
-      --text-tertiary:  #9CA3AF;
-
-      /* Accent — forest green, applied sparingly */
-      --accent:       #16A34A;
-      --accent-hover: #15803D;
-      --accent-faint: #F0FDF4;   /* very light green tint for hover bg */
-      --accent-muted: #DCFCE7;   /* chip/tag backgrounds */
-
-      /* Borders */
-      --border:       #E5E7EB;
-      --border-light: #F3F4F6;
-
-      /* Type scale — only 3 sizes needed */
-      --text-sm:   0.813rem;   /* 13px — labels, tags, footer */
-      --text-base: 1rem;       /* 16px — body */
-      --text-lg:   1.125rem;   /* 18px — lead text */
-
-      /* Spacing grid (8px base) */
-      --sp-1:  8px;
-      --sp-2:  16px;
-      --sp-3:  24px;
-      --sp-4:  32px;
-      --sp-6:  48px;
-      --sp-8:  64px;
-      --sp-12: 96px;
-
-      /* Radii */
-      --radius-sm: 6px;
-      --radius-md: 12px;   /* cards */
-      --radius-lg: 20px;
-
-      /* Shadows — intentionally subtle */
-      --shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
-
-      --transition: 0.18s ease;
+      --bg:        #0d1b2a;      /* [EDIT] main background */
+      --bg2:       #0a1520;
+      --bg3:       #111f30;
+      --mint:      #00ff88;      /* [EDIT] accent color */
+      --mint-dim:  #00cc6a;
+      --mint-glow: rgba(0,255,136,0.18);
+      --mint-glow2:rgba(0,255,136,0.06);
+      --white:     #e8f4f0;
+      --gray:      #6b8fa8;
+      --gray2:     #3a5468;
+      --border:    rgba(0,255,136,0.15);
+      --ff-mono:   'JetBrains Mono', monospace;
+      --ff-body:   'Syne', sans-serif;
+      --radius:    6px;
+      --transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* ─────────────────────────────────────────────
-       RESET & BASE
-    ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
-      background: var(--bg-white);
-      color: var(--text-primary);
-      /* DM Sans at 16px/1.7 — comfortable reading across all sections */
-      font-family: 'DM Sans', system-ui, sans-serif;
-      font-size: var(--text-base);
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--ff-body);
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      cursor: none;
     }
 
-    /* Accessible scrollbar — visible but unobtrusive */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-surface); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    /* ══ CUSTOM SCROLLBAR ══ */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--mint-dim); border-radius: 99px; }
 
-    /* Global focus ring — visible for keyboard users */
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 4px;
+    /* ══ CUSTOM CURSOR ══ */
+    #cursor {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 14px; height: 14px;
+      border: 1.5px solid var(--mint);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+      transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.2s;
+      mix-blend-mode: screen;
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    img, svg { display: block; }
-
-    /* ─────────────────────────────────────────────
-       NAVIGATION
-       Minimal, sticky. Max 3 items visible.
-       Removed: letter-spacing abuse, mono font on links.
-    ───────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+    #cursor-dot {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 4px; height: 4px;
+      background: var(--mint);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
     }
+    body:hover #cursor { opacity: 1; }
+    a:hover ~ #cursor, button:hover ~ #cursor { width: 28px; height: 28px; background: var(--mint-glow); }
 
-    .nav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 var(--sp-4);
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: var(--sp-4);
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: var(--text-sm);
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color var(--transition);
-      /* Clean underline on hover instead of pseudo-element animation */
-      text-underline-offset: 4px;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-      text-decoration-color: var(--accent);
-    }
-
-    /* ─────────────────────────────────────────────
-       LAYOUT HELPERS
-    ───────────────────────────────────────────── */
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 var(--sp-4);
-    }
-
-    /* Alternating section backgrounds for visual rhythm */
-    .section--white   { background: var(--bg-white); }
-    .section--surface { background: var(--bg-surface); }
-
-    section {
-      padding: var(--sp-12) 0;
-    }
-
-    /* Section label — small caps, monospace, accent */
-    .section-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: var(--sp-2);
-      display: flex;
-      align-items: center;
-      gap: var(--sp-1);
-    }
-
-    .section-eyebrow::before {
+    /* ══ SCANLINES OVERLAY ══ */
+    body::before {
       content: '';
-      display: inline-block;
-      width: 20px;
-      height: 2px;
-      background: var(--accent);
-      border-radius: 2px;
+      position: fixed; inset: 0; z-index: 1000;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
     }
 
-    /* H2 — clear size jump from body */
-    .section-heading {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;   /* tight tracking on large headings improves rhythm */
-      color: var(--text-primary);
-      margin-bottom: var(--sp-6);
-    }
-
-    .section-heading .accent { color: var(--accent); }
-
-    /* ─────────────────────────────────────────────
-       HERO
-       Removed: radar canvas, glitch effects, custom cursor,
-       scanline overlay, heavy animations.
-       Added: clean, typographic hero with subtle fade-in.
-    ───────────────────────────────────────────── */
-    #hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      background: var(--bg-white);
-      /* Subtle dot grid — gives technical character without visual noise */
-      background-image: radial-gradient(circle, #D1FAE5 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    .hero-content {
-      padding: var(--sp-12) 0;
-    }
-
-    /* Location chip */
-    .hero-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'DM Mono', monospace;
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 99px;
-      padding: 4px 12px;
-      margin-bottom: var(--sp-3);
-      animation: fadeUp 0.5s 0.1s ease both;
-    }
-
-    .hero-name {
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: var(--text-primary);
-      margin-bottom: var(--sp-3);
-      animation: fadeUp 0.5s 0.2s ease both;
-    }
-
-    .hero-name .accent { color: var(--accent); }
-
-    .hero-tagline {
-      /* max-width: 65ch constrains line length for easy scanning */
-      max-width: 56ch;
-      font-size: var(--text-lg);
-      font-weight: 400;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: var(--sp-6);
-      animation: fadeUp 0.5s 0.3s ease both;
-    }
-
-    /* Typewriter sits in a fixed-height container to avoid layout shift */
-    .hero-typewriter {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: var(--sp-6);
-      min-height: 1.6em;
-      animation: fadeUp 0.5s 0.35s ease both;
-    }
-
-    .tw-cursor {
-      display: inline-block;
-      width: 2px; height: 1em;
-      background: var(--accent);
-      margin-left: 2px;
-      vertical-align: text-bottom;
-      animation: blink 1s step-end infinite;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-2);
-      animation: fadeUp 0.5s 0.4s ease both;
-    }
-
-    /* Primary button */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 44px;           /* 44px min touch target */
-      padding: 0 var(--sp-3);
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      font-size: var(--text-sm);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--accent);
-      transition: background var(--transition), transform var(--transition);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
-
-    /* Ghost button */
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      height: 44px;
-      padding: 0 var(--sp-3);
-      background: transparent;
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: var(--text-sm);
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      transition: border-color var(--transition), color var(--transition), transform var(--transition);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost svg, .btn-primary svg {
-      width: 16px; height: 16px;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
-
-    /* ─────────────────────────────────────────────
-       ABOUT
-    ───────────────────────────────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-8);
-      align-items: start;
-    }
-
-    /* max-width: 70ch prevents overly long lines */
-    .about-text p {
-      max-width: 70ch;
-      color: var(--text-secondary);
-      font-size: var(--text-base);
-      line-height: 1.75;
-      margin-bottom: var(--sp-2);
-    }
-
-    .about-text strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .hobby-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: var(--sp-3);
-    }
-
-    /* Hobby chip — accent-faint bg for soft visual interest */
-    .hobby-chip {
-      font-size: var(--text-sm);
-      background: var(--accent-muted);
-      color: var(--accent-hover);
-      padding: 4px 12px;
-      border-radius: 99px;
-      font-weight: 500;
-    }
-
-    /* Stats — 2×2 grid of numbers */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-2);
-    }
-
-    .stat-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: var(--sp-3);
-      box-shadow: var(--shadow-card);
-      transition: box-shadow var(--transition), transform var(--transition);
-    }
-
-    .stat-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-
-    .stat-number {
-      font-family: 'DM Mono', monospace;
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--accent);
-      line-height: 1.1;
-    }
-
-    .stat-label {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      margin-top: 4px;
-    }
-
-    /* ─────────────────────────────────────────────
-       SKILLS
-    ───────────────────────────────────────────── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--sp-2);
-    }
-
-    .skill-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: var(--sp-3);
-      box-shadow: var(--shadow-card);
-      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-    }
-
-    .skill-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: #BBF7D0;   /* light green border on hover — accent hint */
-      transform: translateY(-2px);
-    }
-
-    .skill-icon {
-      font-size: 1.5rem;
-      margin-bottom: var(--sp-2);
-      display: block;
-    }
-
-    /* Monospace for category label — subtle technical feel */
-    .skill-category {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(13,27,42,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--ff-mono);
+      font-size: 0.78rem;
       letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-bottom: 4px;
     }
-
-    .skill-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text-primary);
-      margin-bottom: var(--sp-1);
+    .nav-logo {
+      color: var(--mint);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
     }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .skill-tags span {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-secondary);
-      background: var(--bg-surface);
-      border: 1px solid var(--border-light);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    /* ─────────────────────────────────────────────
-       PROJECTS
-    ───────────────────────────────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: var(--sp-3);
-    }
-
-    .project-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: var(--sp-4);
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+    .nav-logo span { color: var(--gray); }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color var(--transition);
       position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1px; background: var(--mint);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .nav-links a:hover { color: var(--mint); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
 
-    /* Thin accent top border on hover — replaces the animated scaleX version */
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.22s ease;
+    /* Radar canvas background */
+    #radarCanvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0.55;
     }
 
+    /* Grid lines behind */
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.45;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--mint);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      animation: fadeInDown 0.8s ease both;
+    }
+
+    .hero-name {
+      font-family: var(--ff-mono);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+    .hero-name .accent { color: var(--mint); }
+
+    .hero-typewriter {
+      font-family: var(--ff-mono);
+      font-size: clamp(0.9rem, 2vw, 1.15rem);
+      color: var(--gray);
+      margin: 1.2rem auto 2.2rem;
+      letter-spacing: 0.04em;
+      animation: fadeInUp 0.9s 0.4s ease both;
+      min-height: 1.8em;
+    }
+    .hero-typewriter .tw-cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--mint);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    .hero-socials {
+      display: flex; gap: 1rem; justify-content: center;
+      animation: fadeInUp 0.9s 0.6s ease both;
+      flex-wrap: wrap;
+    }
+    .hero-socials a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--ff-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--gray2);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .hero-socials a:hover {
+      color: var(--mint); border-color: var(--mint);
+      box-shadow: 0 0 18px var(--mint-glow), inset 0 0 18px var(--mint-glow2);
+      transform: translateY(-2px);
+    }
+    .hero-socials svg { width: 15px; height: 15px; fill: currentColor; }
+
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-family: var(--ff-mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; color: var(--gray2);
+      text-transform: uppercase;
+      animation: fadeIn 1.2s 1s ease both;
+    }
+    .scroll-hint .line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--mint), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION SHARED
+    ══════════════════════════════════════════ */
+    section { padding: 7rem 0; position: relative; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--mint);
+    }
+
+    .section-title {
+      font-family: var(--ff-mono);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+    .section-title .accent { color: var(--mint); }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s cubic-bezier(0.23,1,0.32,1), transform 0.7s cubic-bezier(0.23,1,0.32,1);
+    }
+    .reveal.visible {
+      opacity: 1; transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ══════════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════════ */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: #a8c4d4;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--white); font-weight: 600; }
+
+    .about-hobby {
+      margin-top: 1.8rem;
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .hobby-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.4); }
+    .stat-card:hover::before { opacity: 1; }
+    .stat-num {
+      font-family: var(--ff-mono);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--mint);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.4rem;
+    }
+
+    /* ══════════════════════════════════════════
+       SKILLS
+    ══════════════════════════════════════════ */
+    #skills { background: var(--bg2); }
+    #skills::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    #skills::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      group: skill;
+    }
+    .skill-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--mint-glow2), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .skill-card:hover {
+      border-color: var(--mint);
+      box-shadow: 0 0 24px var(--mint-glow), 0 8px 32px rgba(0,0,0,0.3);
+      transform: translateY(-5px);
+    }
+    .skill-card:hover::after { opacity: 1; }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.9rem;
+      display: block;
+      position: relative; z-index: 1;
+    }
+    .skill-category {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 0.5rem;
+      position: relative; z-index: 1;
+    }
+    .skill-name {
+      font-family: var(--ff-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      position: relative; z-index: 1;
+    }
+    .skill-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      position: relative; z-index: 1;
+    }
+    .skill-tags span {
+      font-family: var(--ff-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.05em;
+      color: var(--gray);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--gray2);
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════════════════════════
+       PROJECTS
+    ══════════════════════════════════════════ */
+    #projects { background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+      display: flex; flex-direction: column;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--mint), var(--mint-dim));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
     .project-card:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: #BBF7D0;
+      transform: translateY(-7px);
+      border-color: rgba(0,255,136,0.4);
+      box-shadow: 0 0 40px var(--mint-glow), 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-num {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--mint);
+      margin-bottom: 1rem;
+    }
+    .project-icon-wrap {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-title {
+      font-family: var(--ff-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      color: #7a9ab5;
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.4rem;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .project-tags span {
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--mint-dim);
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════ */
+    #contact { background: var(--bg2); }
+
+    .contact-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner .section-label { justify-content: center; }
+    .contact-inner .section-label::before { display: none; }
+
+    .contact-quote {
+      font-family: var(--ff-mono);
+      font-size: 1rem;
+      color: var(--gray);
+      border-left: 2px solid var(--mint);
+      padding: 0.8rem 1.4rem;
+      text-align: left;
+      margin: 0 auto 3rem;
+      max-width: 520px;
+      letter-spacing: 0.02em;
+      font-style: italic;
+    }
+
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--ff-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border: 1px solid var(--gray2);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .contact-link svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+    .contact-link:hover {
+      color: var(--mint); border-color: var(--mint);
+      box-shadow: 0 0 22px var(--mint-glow), inset 0 0 22px var(--mint-glow2);
       transform: translateY(-3px);
     }
 
-    .project-card:hover::before {
-      transform: scaleX(1);
+    .contact-divider {
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      margin: 0 auto 2.5rem;
     }
 
-    .project-number {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.08em;
-      margin-bottom: var(--sp-2);
-    }
-
-    .project-icon {
-      font-size: 2rem;
-      margin-bottom: var(--sp-2);
-    }
-
-    .project-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    .project-desc {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      flex: 1;
-      /* max-width keeps text comfortable even in wide cards */
-      max-width: 60ch;
-      margin-bottom: var(--sp-3);
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .project-tags span {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--accent-hover);
-      background: var(--accent-muted);
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.03em;
-    }
-
-    /* ─────────────────────────────────────────────
-       CONTACT
-    ───────────────────────────────────────────── */
-    .contact-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .contact-inner .section-eyebrow {
-      justify-content: center;
-    }
-
-    .contact-inner .section-eyebrow::before { display: none; }
-
-    .contact-quote {
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--text-secondary);
-      border-left: 3px solid var(--accent);
-      text-align: left;
-      padding: var(--sp-2) var(--sp-3);
-      margin: 0 auto var(--sp-6);
-      background: var(--accent-faint);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      max-width: 480px;
-    }
-
-    .contact-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--sp-2);
-      margin-bottom: var(--sp-6);
-    }
-
-    /* Divider */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: var(--border);
-      border-radius: 2px;
-      margin: 0 auto var(--sp-4);
-    }
-
-    .contact-email {
-      font-family: 'DM Mono', monospace;
-      font-size: 1rem;
-      color: var(--text-secondary);
+    .contact-email-big {
+      font-family: var(--ff-mono);
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding-bottom: 3px;
       border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: color var(--transition), border-color var(--transition);
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .contact-email-big:hover {
+      color: var(--mint);
+      border-color: var(--mint);
     }
 
-    .contact-email:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* ─────────────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────────────── */
+    /* ══ FOOTER ══ */
     footer {
+      background: var(--bg);
       border-top: 1px solid var(--border);
-      padding: var(--sp-4);
+      padding: 1.8rem 2.5rem;
       text-align: center;
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      background: var(--bg-white);
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--gray2);
     }
+    footer span { color: var(--mint); }
 
-    footer span { color: var(--accent); font-weight: 600; }
-
-    /* ─────────────────────────────────────────────
-       SCROLL REVEAL
-    ───────────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .reveal-d1 { transition-delay: 0.08s; }
-    .reveal-d2 { transition-delay: 0.16s; }
-    .reveal-d3 { transition-delay: 0.24s; }
-    .reveal-d4 { transition-delay: 0.32s; }
-
-    /* ─────────────────────────────────────────────
+    /* ══════════════════════════════════════════
        KEYFRAMES
-    ───────────────────────────────────────────── */
-    @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
-    @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-
-    /* ─────────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────────── */
-    @media (max-width: 860px) {
-      .about-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
+    ══════════════════════════════════════════ */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:none} }
+    @keyframes fadeInUp   { from{opacity:0;transform:translateY(24px)}  to{opacity:1;transform:none} }
+    @keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+    @keyframes scrollLine {
+      0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+      50%  { opacity:1; transform:scaleY(1); transform-origin:top; }
+      100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
     }
 
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      section { padding: var(--sp-8) 0; }
-      .container { padding: 0 var(--sp-2); }
+      section { padding: 5rem 0; }
+      .container { padding: 0 1.4rem; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .hero-name { font-size: 2.8rem; }
+      body { cursor: auto; }
+      #cursor, #cursor-dot { display: none; }
+    }
+
+    /* glitch flicker for hero name */
+    .glitch {
+      position: relative;
+    }
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute; left: 0; top: 0;
+      width: 100%;
+      opacity: 0;
+    }
+    .glitch::before {
+      color: #00ff88;
+      clip-path: polygon(0 0,100% 0,100% 35%,0 35%);
+      transform: translate(-2px, 0);
+      animation: glitch1 6s 2s infinite;
+    }
+    .glitch::after {
+      color: #ff3355;
+      clip-path: polygon(0 65%,100% 65%,100% 100%,0 100%);
+      transform: translate(2px, 0);
+      animation: glitch2 6s 2s infinite;
+    }
+    @keyframes glitch1 {
+      0%,94%,100%{opacity:0;transform:translate(0,0)}
+      95%{opacity:0.7;transform:translate(-3px,0)}
+      97%{opacity:0;transform:translate(0,0)}
+    }
+    @keyframes glitch2 {
+      0%,94%,100%{opacity:0;transform:translate(0,0)}
+      95%{opacity:0.5;transform:translate(3px,1px)}
+      97%{opacity:0;transform:translate(0,0)}
     }
   </style>
 </head>
 <body>
 
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-dot"></div>
+
   <!-- ══ NAVIGATION ══ -->
-  <nav aria-label="Main navigation">
-    <div class="nav-inner">
-      <a class="nav-logo" href="#hero" aria-label="Home">WN://</a>
-      <ul class="nav-links" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+  <nav>
+    <a class="nav-logo" href="#hero">WN<span>://</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">01_about</a></li>
+      <li><a href="#skills">02_skills</a></li>
+      <li><a href="#projects">03_projects</a></li>
+      <li><a href="#contact">04_contact</a></li>
+    </ul>
   </nav>
 
   <!-- ══ HERO ══ -->
-  <section id="hero" aria-label="Introduction">
-    <div class="container">
-      <div class="hero-content">
-        <!-- Location chip — replaces animated "system online" badge with clear, readable info -->
-        <div class="hero-chip">🇵🇱 Poland</div>
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <canvas id="radarCanvas"></canvas>
 
-        <h1 class="hero-name">
-          Wojciech<br/><span class="accent">Nikiel</span>
-        </h1>
+    <div class="hero-content">
+      <div class="hero-tag">System online — Poland 🇵🇱</div> <!-- [EDIT] location tag -->
 
-        <!-- Static tagline always visible — typewriter is decorative complement, not primary info -->
-        <p class="hero-tagline">
-          Mechatronics student &amp; RF enthusiast. Building at the intersection of hardware, firmware, and signal processing.
-        </p>
+      <h1 class="hero-name">
+        <span class="glitch" data-text="Wojciech">Wojciech</span><br/>
+        <span class="accent glitch" data-text="Nikiel">Nikiel</span> <!-- [EDIT] name -->
+      </h1>
 
-        <p class="hero-typewriter" aria-hidden="true">
-          <span id="tw-text"></span><span class="tw-cursor"></span>
-        </p>
+      <p class="hero-typewriter">
+        <span id="tw-text"></span><span class="tw-cursor"></span>
+      </p>
 
-        <div class="hero-actions">
-          <a class="btn-primary" href="#projects">View Projects</a>
-          <a class="btn-ghost" href="https://github.com/V1odek" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a class="btn-ghost" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-            LinkedIn
-          </a>
-        </div>
+      <div class="hero-socials">
+        <!-- GitHub -->
+        <a href="https://github.com/V1odek" target="_blank" rel="noopener"> <!-- [EDIT] github -->
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener"> <!-- [EDIT] linkedin -->
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+          LinkedIn
+        </a>
+        <!-- Email -->
+        <a href="mailto:wojtek.nikiel73@gmail.com"> <!-- [EDIT] email -->
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Email
+        </a>
       </div>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="line"></div>
+      scroll
     </div>
   </section>
 
   <!-- ══ ABOUT ══ -->
-  <section id="about" class="section--surface">
+  <section id="about">
     <div class="container">
       <div class="about-grid">
         <div class="reveal">
-          <div class="section-eyebrow">01 — About</div>
-          <h2 class="section-heading">Inżynier<br/>w <span class="accent">akcji.</span></h2>
-          <!-- max-width: 70ch on paragraphs keeps line length in the readable sweet spot -->
+          <div class="section-label">01 — About</div>
+          <h2 class="section-title">Inżynier<br/>w <span class="accent">akcji.</span></h2>
+          <!-- [EDIT] about text -->
           <div class="about-text">
             <p>Student mechatroniki z pasją do <strong>systemów RF i radarowych</strong>. Łączę świat hardware'u z zaawansowanym firmware'm — od projektowania PCB, przez programowanie mikrokontrolerów, po analizę sygnałów radiowych przy użyciu SDR.</p>
             <p>Interesuję się <strong>bezzałogowymi statkami powietrznymi</strong>, napędem odrzutowym i symulacjami CFD. Wierzę, że najlepsze projekty rodzą się na granicy teorii i fizycznego prototypu.</p>
           </div>
-          <div class="hobby-list">
-            <span class="hobby-chip">📻 HAM Radio</span>
-            <span class="hobby-chip">🥋 Sporty walki</span>
-            <span class="hobby-chip">♟️ Szachy</span>
-            <span class="hobby-chip">🚴 Kolarstwo</span>
+          <div class="about-hobby">
+            <!-- [EDIT] hobbies -->
+            <span class="hobby-tag">📻 HAM Radio</span>
+            <span class="hobby-tag">🥋 Sporty walki</span>
+            <span class="hobby-tag">♟️ Szachy</span>
+            <span class="hobby-tag">🚴 Kolarstwo</span>
           </div>
         </div>
 
-        <div class="stats-grid reveal reveal-d2">
-          <div class="stat-card reveal reveal-d1">
-            <div class="stat-number">4+</div>
+        <div class="about-stats reveal reveal-delay-2">
+          <!-- [EDIT] stats -->
+          <div class="stat-card reveal reveal-delay-1">
+            <div class="stat-num">4+</div>
             <div class="stat-label">Języki programowania</div>
           </div>
-          <div class="stat-card reveal reveal-d2">
-            <div class="stat-number">4</div>
+          <div class="stat-card reveal reveal-delay-2">
+            <div class="stat-num">4</div>
             <div class="stat-label">Projekty badawcze</div>
           </div>
-          <div class="stat-card reveal reveal-d3">
-            <div class="stat-number">6+</div>
+          <div class="stat-card reveal reveal-delay-3">
+            <div class="stat-num">6+</div>
             <div class="stat-label">Narzędzia CAD/EDA</div>
           </div>
-          <div class="stat-card reveal reveal-d4">
-            <div class="stat-number">∞</div>
+          <div class="stat-card reveal reveal-delay-4">
+            <div class="stat-num">∞</div>
             <div class="stat-label">Ciekawość</div>
           </div>
         </div>
@@ -779,14 +772,15 @@
   </section>
 
   <!-- ══ SKILLS ══ -->
-  <section id="skills" class="section--white">
+  <section id="skills">
     <div class="container">
       <div class="reveal">
-        <div class="section-eyebrow">02 — Skills</div>
-        <h2 class="section-heading">Toolstack &amp;<br/><span class="accent">Technologie.</span></h2>
+        <div class="section-label">02 — Skills</div>
+        <h2 class="section-title">Toolstack &amp;<br/><span class="accent">Technologie.</span></h2>
       </div>
       <div class="skills-grid">
-        <div class="skill-card reveal reveal-d1">
+        <!-- [EDIT] skills cards -->
+        <div class="skill-card reveal reveal-delay-1">
           <span class="skill-icon">💻</span>
           <div class="skill-category">Programowanie</div>
           <div class="skill-name">Languages</div>
@@ -794,7 +788,7 @@
             <span>Python</span><span>C++</span><span>C#</span><span>SQL</span>
           </div>
         </div>
-        <div class="skill-card reveal reveal-d2">
+        <div class="skill-card reveal reveal-delay-2">
           <span class="skill-icon">🔌</span>
           <div class="skill-category">Hardware</div>
           <div class="skill-name">Embedded</div>
@@ -802,7 +796,7 @@
             <span>Arduino</span><span>Raspberry Pi</span><span>Siemens PLC</span>
           </div>
         </div>
-        <div class="skill-card reveal reveal-d3">
+        <div class="skill-card reveal reveal-delay-3">
           <span class="skill-icon">🎛️</span>
           <div class="skill-category">EDA / PCB</div>
           <div class="skill-name">Design</div>
@@ -810,7 +804,7 @@
             <span>KiCad</span><span>Altium</span>
           </div>
         </div>
-        <div class="skill-card reveal reveal-d4">
+        <div class="skill-card reveal reveal-delay-4">
           <span class="skill-icon">📡</span>
           <div class="skill-category">RF / Radio</div>
           <div class="skill-name">Signal Proc.</div>
@@ -818,7 +812,7 @@
             <span>SDR</span><span>GNU Radio</span><span>Radar Sys.</span>
           </div>
         </div>
-        <div class="skill-card reveal reveal-d1">
+        <div class="skill-card reveal reveal-delay-1">
           <span class="skill-icon">🧊</span>
           <div class="skill-category">CAD</div>
           <div class="skill-name">Modelling</div>
@@ -826,7 +820,7 @@
             <span>Fusion 360</span><span>AutoCAD</span><span>Inventor</span>
           </div>
         </div>
-        <div class="skill-card reveal reveal-d2">
+        <div class="skill-card reveal reveal-delay-2">
           <span class="skill-icon">🌊</span>
           <div class="skill-category">Simulation</div>
           <div class="skill-name">CFD</div>
@@ -839,45 +833,46 @@
   </section>
 
   <!-- ══ PROJECTS ══ -->
-  <section id="projects" class="section--surface">
+  <section id="projects">
     <div class="container">
       <div class="reveal">
-        <div class="section-eyebrow">03 — Projects</div>
-        <h2 class="section-heading">Wybrane<br/><span class="accent">Projekty.</span></h2>
+        <div class="section-label">03 — Projects</div>
+        <h2 class="section-title">Wybrane<br/><span class="accent">Projekty.</span></h2>
       </div>
       <div class="projects-grid">
-        <div class="project-card reveal reveal-d1">
-          <div class="project-number">PROJECT_01</div>
-          <div class="project-icon">📡</div>
+        <!-- [EDIT] project cards -->
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-num">PROJECT_01</div>
+          <div class="project-icon-wrap">📡</div>
           <div class="project-title">Radar / RF Research</div>
-          <p class="project-desc">Badania nad systemami radarowymi z wykorzystaniem SDR. Analiza i przetwarzanie sygnałów, implementacja algorytmów detekcji w GNU Radio.</p>
+          <div class="project-desc">Badania nad systemami radarowymi z wykorzystaniem SDR. Analiza i przetwarzanie sygnałów, implementacja algorytmów detekcji w GNU Radio.</div>
           <div class="project-tags">
             <span>SDR</span><span>GNU Radio</span><span>Signal Analysis</span><span>Python</span>
           </div>
         </div>
-        <div class="project-card reveal reveal-d2">
-          <div class="project-number">PROJECT_02</div>
-          <div class="project-icon">🚁</div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-num">PROJECT_02</div>
+          <div class="project-icon-wrap">🚁</div>
           <div class="project-title">UAV Systems</div>
-          <p class="project-desc">Projektowanie i budowa platform UAV — od aerodynamiki i doboru komponentów po układy sterowania lotem i integrację avioniki.</p>
+          <div class="project-desc">Projektowanie i budowa platform UAV — od aerodynamiki i doboru komponentów po układy sterowania lotem i integrację avioniki.</div>
           <div class="project-tags">
             <span>Fusion 360</span><span>Flight Control</span><span>C++</span><span>PCB</span>
           </div>
         </div>
-        <div class="project-card reveal reveal-d3">
-          <div class="project-number">PROJECT_03</div>
-          <div class="project-icon">🔬</div>
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-num">PROJECT_03</div>
+          <div class="project-icon-wrap">🔬</div>
           <div class="project-title">Embedded Prototyping</div>
-          <p class="project-desc">Projektowanie niestandardowych płytek PCB, programowanie niskopoziomowego firmware dla mikrokontrolerów ARM i AVR.</p>
+          <div class="project-desc">Projektowanie niestandardowych płytek PCB, programowanie niskopoziomowego firmware dla mikrokontrolerów ARM i AVR.</div>
           <div class="project-tags">
             <span>KiCad</span><span>Altium</span><span>Arduino</span><span>Raspberry Pi</span>
           </div>
         </div>
-        <div class="project-card reveal reveal-d4">
-          <div class="project-number">PROJECT_04</div>
-          <div class="project-icon">🔥</div>
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-num">PROJECT_04</div>
+          <div class="project-icon-wrap">🔥</div>
           <div class="project-title">Jet Propulsion</div>
-          <p class="project-desc">Koncepcja i symulacja miniaturowego silnika odrzutowego. Optymalizacja przepływu spalin przy użyciu Ansys Fluent CFD.</p>
+          <div class="project-desc">Koncepcja i symulacja miniaturowego silnika odrzutowego. Optymalizacja przepływu spalin przy użyciu Ansys Fluent CFD.</div>
           <div class="project-tags">
             <span>Ansys Fluent</span><span>CFD</span><span>AutoCAD</span><span>Thermodynamics</span>
           </div>
@@ -887,33 +882,31 @@
   </section>
 
   <!-- ══ CONTACT ══ -->
-  <section id="contact" class="section--white">
+  <section id="contact">
     <div class="container">
       <div class="contact-inner reveal">
-        <div class="section-eyebrow">04 — Contact</div>
-        <h2 class="section-heading">Nawiąż<br/><span class="accent">Kontakt.</span></h2>
+        <div class="section-label">04 — Contact</div>
+        <h2 class="section-title">Nawiąż<br/><span class="accent">Kontakt.</span></h2>
 
+        <!-- [EDIT] quote -->
         <blockquote class="contact-quote">
           „Zawsze w ruchu – między teorią a praktyką."
         </blockquote>
 
-        <div class="contact-buttons">
-          <a class="btn-ghost" href="https://github.com/V1odek" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <div class="contact-links">
+          <!-- [EDIT] contact links -->
+          <a class="contact-link" href="https://github.com/V1odek" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.13 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
             GitHub
           </a>
-          <a class="btn-ghost" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+          <a class="contact-link" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
             LinkedIn
-          </a>
-          <a class="btn-ghost" href="mailto:wojtek.nikiel73@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Email
           </a>
         </div>
 
-        <div class="divider"></div>
-        <a class="contact-email" href="mailto:wojtek.nikiel73@gmail.com">
+        <div class="contact-divider"></div>
+        <a class="contact-email-big" href="mailto:wojtek.nikiel73@gmail.com"> <!-- [EDIT] email -->
           wojtek.nikiel73@gmail.com
         </a>
       </div>
@@ -922,13 +915,161 @@
 
   <!-- ══ FOOTER ══ -->
   <footer>
-    <span>WN</span> © 2025 Wojciech Nikiel — Mechatronics &amp; RF
+    <span>WN</span> © 2025 Wojciech Nikiel — Mechatronics &amp; RF <!-- [EDIT] year/name -->
   </footer>
 
-  <!-- ══ SCRIPTS ══ -->
+  <!-- ══════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════ -->
   <script>
+    /* ── CURSOR ── */
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursor-dot');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    function animCursor() {
+      cx += (mx - cx) * 0.18;
+      cy += (my - cy) * 0.18;
+      cursor.style.left = cx + 'px';
+      cursor.style.top  = cy + 'px';
+      cursorDot.style.left = mx + 'px';
+      cursorDot.style.top  = my + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '30px'; cursor.style.height = '30px';
+        cursor.style.background = 'rgba(0,255,136,0.15)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '14px'; cursor.style.height = '14px';
+        cursor.style.background = 'transparent';
+      });
+    });
+
+    /* ── RADAR CANVAS ── */
+    (function() {
+      const canvas = document.getElementById('radarCanvas');
+      const ctx    = canvas.getContext('2d');
+      let W, H, cx, cy, R, angle = 0;
+      const RINGS = 5;
+      const SWEEP_LEN = Math.PI * 0.55; // sweep arc length
+      const BLIPS = [];
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+        cx = W / 2; cy = H / 2;
+        R  = Math.min(W, H) * 0.44;
+        initBlips();
+      }
+
+      function initBlips() {
+        BLIPS.length = 0;
+        // [EDIT] number of radar blips
+        for (let i = 0; i < 12; i++) {
+          const r   = (0.2 + Math.random() * 0.75) * R;
+          const a   = Math.random() * Math.PI * 2;
+          BLIPS.push({ r, a, life: 0, maxLife: 60 + Math.random() * 80 });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        /* rings */
+        for (let i = 1; i <= RINGS; i++) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, R * (i / RINGS), 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(0,255,136,${0.08 + i * 0.025})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+
+        /* crosshairs */
+        ctx.strokeStyle = 'rgba(0,255,136,0.07)';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath(); ctx.moveTo(cx - R, cy); ctx.lineTo(cx + R, cy); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx, cy - R); ctx.lineTo(cx, cy + R); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx - R*0.71, cy - R*0.71); ctx.lineTo(cx + R*0.71, cy + R*0.71); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx + R*0.71, cy - R*0.71); ctx.lineTo(cx - R*0.71, cy + R*0.71); ctx.stroke();
+
+        /* sweep gradient */
+        const grad = ctx.createConicalGradient
+          ? null /* not widely supported */
+          : null;
+
+        // Manual sweep via arc fill
+        const sweepGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, R);
+        sweepGrad.addColorStop(0,   'rgba(0,255,136,0.18)');
+        sweepGrad.addColorStop(0.5, 'rgba(0,255,136,0.07)');
+        sweepGrad.addColorStop(1,   'rgba(0,255,136,0)');
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, R, angle - SWEEP_LEN, angle, false);
+        ctx.closePath();
+        ctx.fillStyle = sweepGrad;
+        ctx.fill();
+
+        /* sweep line */
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * R, cy + Math.sin(angle) * R);
+        ctx.strokeStyle = 'rgba(0,255,136,0.8)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.restore();
+
+        /* blips */
+        BLIPS.forEach(b => {
+          // activate when sweep passes over blip's angle
+          const da = ((angle - b.a) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+          if (da < 0.15 && b.life === 0) b.life = b.maxLife;
+          if (b.life > 0) {
+            const px = cx + Math.cos(b.a) * b.r;
+            const py = cy + Math.sin(b.a) * b.r;
+            const alpha = b.life / b.maxLife;
+            ctx.beginPath();
+            ctx.arc(px, py, 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0,255,136,${alpha * 0.9})`;
+            ctx.shadowColor = '#00ff88';
+            ctx.shadowBlur  = 8 * alpha;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            b.life--;
+            if (b.life === 0) {
+              // reset with slight position drift
+              b.r = (0.2 + Math.random() * 0.75) * R;
+              b.a = Math.random() * Math.PI * 2;
+              b.maxLife = 60 + Math.random() * 80;
+            }
+          }
+        });
+
+        /* center dot */
+        ctx.beginPath();
+        ctx.arc(cx, cy, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ff88';
+        ctx.shadowColor = '#00ff88';
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        angle += 0.018; // [EDIT] radar rotation speed
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      draw();
+    })();
+
     /* ── TYPEWRITER ── */
-    (function () {
+    (function() {
+      // [EDIT] typewriter phrases
       const phrases = [
         'Mechatronics Student & RF Enthusiast',
         'SDR · GNU Radio · Radar Systems',
@@ -942,31 +1083,27 @@
         const phrase = phrases[pi];
         if (!deleting) {
           el.textContent = phrase.slice(0, ++ci);
-          if (ci === phrase.length) { deleting = true; wait = 80; }
+          if (ci === phrase.length) { deleting = true; wait = 90; }
         } else {
           if (wait-- > 0) { setTimeout(type, 30); return; }
           el.textContent = phrase.slice(0, --ci);
-          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; wait = 0; }
         }
-        setTimeout(type, deleting ? 28 : 55);
+        setTimeout(type, deleting ? 30 : 60);
       }
-      setTimeout(type, 600);
+      setTimeout(type, 800);
     })();
 
-    /* ── SCROLL REVEAL — IntersectionObserver ── */
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    /* ── SCROLL REVEAL ── */
+    (function() {
+      const els = document.querySelectorAll('.reveal');
+      const io  = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
     })();
 
-    /* ── SMOOTH SCROLL ── */
+    /* ── SMOOTH SCROLL for nav links ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
