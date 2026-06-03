@@ -128,17 +128,24 @@
     }
 
     /* ── ZDJĘCIE & RYMOWANKA ── */
-    .photo-card {
+   .photo-card {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
-      background: url('photo.jpg') center/cover no-repeat;
       min-height: 250px;
+      /* Upewniamy się, że zdjęcie nie wychodzi poza zaokrąglone rogi karty */
+      border-radius: var(--radius); 
+      
+      /* KLUCZOWA ZMIANA: Tło wyrównane do góry (top center), co zapobiega ucinaniu czubka głowy */
+      background-image: url('photo.jpg');
+      background-position: top center; 
+      background-size: cover; 
+      background-repeat: no-repeat;
     }
+
     /* Jeśli brak zdjęcia, zróbmy ładny gradient */
     .photo-card.no-bg {
-      background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+      background-image: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     }
 
     .rhyme-card {
@@ -146,7 +153,11 @@
       border-color: #BFDBFE;
       position: relative;
       overflow: hidden;
+      /* Dodane wyśrodkowanie w pionie, aby tekst zawsze ładnie leżał na środku karty */
+      display: flex;
+      align-items: center; 
     }
+
     .rhyme-card::before {
       content: '"';
       position: absolute;
@@ -158,6 +169,7 @@
       line-height: 1;
       z-index: 0;
     }
+
     .rhyme-card p {
       position: relative;
       z-index: 1;
@@ -165,6 +177,7 @@
       font-style: italic;
       color: #1E3A8A;
       line-height: 1.7;
+      margin: 0; 
     }
 
     /* ── SEKCJA O MNIE I DOŚWIADCZENIE ── */
