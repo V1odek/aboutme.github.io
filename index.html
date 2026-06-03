@@ -11,18 +11,17 @@
 
   <style>
     :root {
-      /* Nowa, czysta i estetyczna biała paleta */
-      --bg:      #ffffff; /* Czysta biel */
-      --bg2:     #f8f9fa; /* Bardzo jasny, chłodny szary pod tła */
-      --ink:     #0f172a; /* Głęboki, elegancki grafit zamiast smolistej czerni */
-      --ink2:    #475569; /* Przyjemny szary dla zwykłego tekstu */
-      --ink3:    #94a3b8; /* Jasnoszary dla detali i dat */
-      --accent:  #2563eb; /* Nowoczesny, techniczny niebieski akcent */
-      --line:    #e2e8f0; /* Delikatne linie oddzielające */
+      --bg:      #ffffff;
+      --bg2:     #f8f9fa;
+      --ink:     #0f172a;
+      --ink2:    #475569;
+      --ink3:    #94a3b8;
+      --accent:  #2563eb;
+      --line:    #e2e8f0;
       --ff-mono: 'IBM Plex Mono', monospace;
       --ff-sans: 'IBM Plex Sans', sans-serif;
-      --max:     1000px;  /* Minimalnie szerszy kontener dla lepszego oddechu */
-      --radius:  6px;     /* Subtelne zaokrąglenia dla estetyki */
+      --max:     800px; /* Zmniejszona szerokość dla lepszego efektu wyśrodkowania */
+      --radius:  8px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,9 +31,9 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--ff-sans);
-      font-weight: 400; /* Zmiana na 400 dla lepszej czytelności na białym tle */
+      font-weight: 400;
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased; /* Wygładzanie czcionek */
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ── LAYOUT ── */
@@ -47,19 +46,20 @@
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255, 255, 255, 0.95); /* Lekka przezroczystość */
-      backdrop-filter: blur(8px); /* Rozmycie tła pod menu */
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
-      padding: 1.2rem 0;
+      padding: 1rem 0;
     }
     nav .wrap {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 1rem;
     }
     .nav-logo {
       font-family: var(--ff-mono);
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--ink);
       text-decoration: none;
@@ -69,7 +69,9 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .nav-links a {
       font-family: var(--ff-mono);
@@ -84,52 +86,62 @@
 
     /* ── HERO ── */
     #hero {
-      padding: 8rem 0 6rem;
+      padding: 6rem 0;
       border-bottom: 1px solid var(--line);
+      text-align: center;
     }
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 1.5rem;
+    }
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      filter: grayscale(10%);
+      border: 4px solid var(--bg2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
     }
     .hero-label {
       font-family: var(--ff-mono);
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent); /* Akcent kolorystyczny */
-      margin-bottom: 1.2rem;
+      color: var(--accent);
       font-weight: 500;
     }
     .hero-name {
       font-family: var(--ff-sans);
-      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-size: clamp(2.8rem, 5vw, 4rem);
       font-weight: 600;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -0.03em;
       color: var(--ink);
-      margin-bottom: 2rem;
     }
     .hero-bio {
       font-size: 1.05rem;
       color: var(--ink2);
-      max-width: 580px;
+      max-width: 600px;
       line-height: 1.8;
-      margin-bottom: 2.5rem;
-      font-style: italic; /* Kursywa dla rymowanki */
+      font-style: italic;
+      margin: 1rem auto 2rem;
     }
     .hero-links {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
     .btn {
       font-family: var(--ff-mono);
       font-size: 0.8rem;
       letter-spacing: 0.06em;
       padding: 0.7rem 1.4rem;
-      border-radius: var(--radius);
+      border-radius: 30px; /* Bardziej zaokrąglone przyciski pasują do wyśrodkowania */
       border: 1px solid var(--line);
       color: var(--ink);
       text-decoration: none;
@@ -152,24 +164,16 @@
       color: white;
     }
 
-    .hero-photo {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%; /* Zmiana na okrągłe zdjęcie dla miękkości */
-      filter: grayscale(10%);
-      border: 4px solid var(--bg2);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
     /* ── SECTIONS ── */
-    section { padding: 6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 70px; }
+    section { padding: 6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 100px; }
     section:last-of-type { border-bottom: none; }
 
     .section-header {
       display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
       margin-bottom: 4rem;
     }
     .section-num {
@@ -181,7 +185,7 @@
     }
     .section-title {
       font-family: var(--ff-sans);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: var(--ink);
@@ -189,9 +193,14 @@
 
     /* ── ABOUT ── */
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem;
+      text-align: center;
+    }
+    .about-text {
+      max-width: 650px;
     }
     .about-text p {
       color: var(--ink2);
@@ -202,11 +211,11 @@
       color: var(--ink); 
       font-weight: 600; 
     }
-
     .tags {
       margin-top: 2rem;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.6rem;
     }
     .tag {
@@ -214,7 +223,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.05em;
       padding: 0.4rem 0.8rem;
-      border-radius: 20px; /* Zaokrąglone tagi */
+      border-radius: 20px;
       border: 1px solid var(--line);
       color: var(--ink2);
       background: var(--bg);
@@ -229,6 +238,9 @@
       padding: 2rem;
       border-radius: var(--radius);
       border: 1px solid var(--line);
+      width: 100%;
+      max-width: 500px;
+      text-align: left;
     }
     .info-row {
       display: flex;
@@ -259,16 +271,19 @@
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; /* Zmiana z siatki liniowej na oddzielne karty */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
     }
     .skill-cell {
-      padding: 2rem;
+      padding: 2.5rem 1.5rem;
       background: var(--bg);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .skill-cell:hover { 
       transform: translateY(-5px);
@@ -293,6 +308,7 @@
     .skill-items {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.4rem;
     }
     .skill-items span {
@@ -304,12 +320,15 @@
     }
 
     /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; gap: 2rem; }
+    .exp-list { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
     .exp-item {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2rem;
-      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 650px;
+      padding: 2.5rem;
       background: var(--bg);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -318,7 +337,7 @@
     .exp-item:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
     .exp-org {
       font-family: var(--ff-sans);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--ink);
       margin-bottom: 0.4rem;
@@ -329,12 +348,12 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--ink3);
+      margin-bottom: 1.5rem;
     }
     .exp-desc {
       font-size: 0.95rem;
       color: var(--ink2);
       line-height: 1.7;
-      margin-top: 0.5rem;
     }
     .exp-badge {
       display: inline-block;
@@ -342,8 +361,8 @@
       font-size: 0.65rem;
       letter-spacing: 0.08em;
       padding: 0.3rem 0.7rem;
-      background: #fef3c7; /* Delikatny złoty tło */
-      color: #92400e; /* Ciemniejszy złoty tekst */
+      background: #fef3c7;
+      color: #92400e;
       border-radius: 20px;
       margin-bottom: 1rem;
       font-weight: 500;
@@ -352,36 +371,69 @@
     /* ── CONTACT ── */
     #contact { padding-bottom: 8rem; }
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 3rem;
+      text-align: center;
     }
     .contact-heading {
       font-family: var(--ff-sans);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 2.5rem);
       font-weight: 600;
       line-height: 1.2;
       color: var(--ink);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     .contact-sub {
       font-size: 1.05rem;
       color: var(--ink2);
-      margin-bottom: 2.5rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
       line-height: 1.7;
     }
+    
+    .contact-info-centered {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .contact-item-key {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+    .contact-item-val a {
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-item-val a:hover { color: var(--accent); }
 
     /* ── FOOTER ── */
     footer {
-      padding: 2rem 0;
+      padding: 2.5rem 0;
       background: var(--bg2);
       border-top: 1px solid var(--line);
+      text-align: center;
     }
     footer .wrap {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      gap: 0.5rem;
     }
     footer p {
       font-family: var(--ff-mono);
@@ -404,20 +456,6 @@
     .d5 { transition-delay: 0.5s; }
     .d6 { transition-delay: 0.6s; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 850px) {
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 600px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-      .hero-photo { display: none; }
-      .hero-links { justify-content: center; }
-      .hero-bio { margin: 0 auto 2.5rem; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; }
-      .nav-links { display: none; }
-    }
   </style>
 </head>
 <body>
@@ -439,9 +477,10 @@
   <section id="hero">
     <div class="wrap">
       <div class="hero-inner">
-        <div>
+        <img class="hero-photo reveal d1" src="photo.jpg" alt="Wojciech Nikiel" />
+        <div class="reveal d2">
           <p class="hero-label">Mechatronics · RF · Embedded</p>
-          <h1 class="hero-name">Wojciech<br/>Nikiel</h1>
+          <h1 class="hero-name">Wojciech Nikiel</h1>
           <p class="hero-bio">
             Na krakowskim URK-u mechatronikę studiuję,<br>
             Od zawsze w kosmos i wielkie rakiety celuję.<br>
@@ -456,8 +495,6 @@
             <a class="btn" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
-        <!-- Upewnij się, że masz plik photo.jpg w tym samym folderze -->
-        <img class="hero-photo" src="photo.jpg" alt="Wojciech Nikiel" />
       </div>
     </div>
   </section>
@@ -470,28 +507,26 @@
         <h2 class="section-title">O mnie</h2>
       </div>
       <div class="about-grid">
-        <div class="reveal d1">
-          <div class="about-text">
-            <p>
-              Angażuję się w projekty poza uczelnią — działam w kole naukowym oraz wspieram startup. Lubię wyzwania, które wymagają nieszablonowego myślenia.
-            </p>
-            <p>
-              <strong>💻 Projektowanie i programowanie:</strong><br>
-              Programuję w Pythonie i C++, a projekty tworzę w AutoCAD, Fusion 360 i Altium Designer.
-            </p>
-            <p>
-              <strong>🚀 Inżynieria kosmiczna:</strong><br>
-              W ramach koła naukowego wykonuję symulacje aerodynamiczne rakiet w środowisku ANSYS Fluent.
-            </p>
-            <p>
-              <strong>📻 Radiokomunikacja:</strong><br>
-              Interesuję się krótkofalarstwem — posiadam zdany egzamin krótkofalowca i prowadzę eksperymenty z odbiorem sygnałów SDR.
-            </p>
-            <p>
-              <strong>🏃‍♂️ Po godzinach:</strong><br>
-              Gram na pianinie i jestem aktywny fizycznie (bieganie, rower, boks, pływanie). Posługuję się językiem angielskim na poziomie B2.
-            </p>
-          </div>
+        <div class="reveal d1 about-text">
+          <p>
+            Angażuję się w projekty poza uczelnią — działam w kole naukowym oraz wspieram startup. Lubię wyzwania, które wymagają nieszablonowego myślenia.
+          </p>
+          <p>
+            <strong>💻 Projektowanie i programowanie:</strong><br>
+            Programuję w Pythonie i C++, a projekty tworzę w AutoCAD, Fusion 360 i Altium Designer.
+          </p>
+          <p>
+            <strong>🚀 Inżynieria kosmiczna:</strong><br>
+            W ramach koła naukowego wykonuję symulacje aerodynamiczne rakiet w środowisku ANSYS Fluent.
+          </p>
+          <p>
+            <strong>📻 Radiokomunikacja:</strong><br>
+            Interesuję się krótkofalarstwem — posiadam zdany egzamin krótkofalowca i prowadzę eksperymenty z odbiorem sygnałów SDR.
+          </p>
+          <p>
+            <strong>🏃‍♂️ Po godzinach:</strong><br>
+            Gram na pianinie i jestem aktywny fizycznie (bieganie, rower, boks, pływanie). Posługuję się językiem angielskim na poziomie B2.
+          </p>
           <div class="tags">
             <span class="tag">📻 HAM Radio</span>
             <span class="tag">🥊 Boks</span>
@@ -502,32 +537,30 @@
           </div>
         </div>
 
-        <div class="reveal d2">
-          <div class="info-list">
-            <div class="info-row">
-              <span class="info-key">Uczelnia</span>
-              <span class="info-val">URK Kraków</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Kierunek</span>
-              <span class="info-val">Inżynieria Mechatroniczna</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Rok</span>
-              <span class="info-val">III (2023–obecnie)</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Angielski</span>
-              <span class="info-val">B2</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Uprawnienia</span>
-              <span class="info-val">SEP G1 · Prawo jazdy kat. B</span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Lokalizacja</span>
-              <span class="info-val">Polska 🇵🇱</span>
-            </div>
+        <div class="reveal d2 info-list">
+          <div class="info-row">
+            <span class="info-key">Uczelnia</span>
+            <span class="info-val">URK Kraków</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Kierunek</span>
+            <span class="info-val">Inżynieria Mechatroniczna</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Rok</span>
+            <span class="info-val">III (2023–obecnie)</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Angielski</span>
+            <span class="info-val">B2</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Uprawnienia</span>
+            <span class="info-val">SEP G1 · Prawo jazdy kat. B</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Lokalizacja</span>
+            <span class="info-val">Polska 🇵🇱</span>
           </div>
         </div>
       </div>
@@ -604,39 +637,27 @@
       </div>
       <div class="exp-list">
         <div class="exp-item reveal d1">
-          <div class="exp-meta">
-            <div class="exp-org">SentiGuard</div>
-            <div class="exp-type">Startup · PCB Design</div>
-          </div>
-          <div>
-            <div class="exp-desc">
-              Projektowanie płytek PCB w programie Altium Designer na potrzeby zaawansowanego systemu detekcji dronów, opartego na analizie dźwięku.
-            </div>
+          <div class="exp-org">SentiGuard</div>
+          <div class="exp-type">Startup · PCB Design</div>
+          <div class="exp-desc">
+            Projektowanie płytek PCB w programie Altium Designer na potrzeby zaawansowanego systemu detekcji dronów, opartego na analizie dźwięku.
           </div>
         </div>
         
         <div class="exp-item reveal d2">
-          <div class="exp-meta">
-            <div class="exp-org">AGH Skylink / IPIE URK</div>
-            <div class="exp-type">Koło Naukowe · UAV</div>
-          </div>
-          <div>
-            <span class="exp-badge">III miejsce 🏆</span>
-            <div class="exp-desc">
-              Współudział w projekcie innowacyjnego drona z napędem turboodrzutowym. Odpowiedzialny za tworzenie dokumentacji technicznej oraz przygotowanie prezentacji projektowej.
-            </div>
+          <div class="exp-org">AGH Skylink / IPIE URK</div>
+          <div class="exp-type">Koło Naukowe · UAV</div>
+          <span class="exp-badge">III miejsce 🏆</span>
+          <div class="exp-desc">
+            Współudział w projekcie innowacyjnego drona z napędem turboodrzutowym. Odpowiedzialny za tworzenie dokumentacji technicznej oraz przygotowanie prezentacji projektowej.
           </div>
         </div>
 
         <div class="exp-item reveal d3">
-          <div class="exp-meta">
-            <div class="exp-org">Mobilne Centrum Badań</div>
-            <div class="exp-type">Wsparcie Techniczne</div>
-          </div>
-          <div>
-            <div class="exp-desc">
-              Wsparcie organizacyjne oraz techniczne przy badaniach diagnostyczno-profilaktycznych. Odpowiedzialność za obsługę pacjentów, logistykę oraz sprawną komunikację.
-            </div>
+          <div class="exp-org">Mobilne Centrum Badań</div>
+          <div class="exp-type">Wsparcie Techniczne</div>
+          <div class="exp-desc">
+            Wsparcie organizacyjne oraz techniczne przy badaniach diagnostyczno-profilaktycznych. Odpowiedzialność za obsługę pacjentów, logistykę oraz sprawną komunikację.
           </div>
         </div>
       </div>
@@ -656,24 +677,20 @@
           <p class="contact-sub">
             Jestem otwarty na współpracę, staże oraz ciekawe projekty z obszaru mechatroniki, systemów RF i rozwiązań embedded.
           </p>
-          <div class="hero-links">
-            <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">wojtek.nikiel73@gmail.com</a>
-          </div>
+          <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">wojtek.nikiel73@gmail.com</a>
         </div>
-        <div class="reveal d2">
-          <div class="info-list" style="background: transparent; border: none; padding: 0;">
-            <div class="info-row">
-              <span class="info-key">Telefon</span>
-              <span class="info-val"><a href="tel:+48792182911" style="color:var(--accent);text-decoration:none;font-weight:600;">+48 792 182 911</a></span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">GitHub</span>
-              <span class="info-val"><a href="https://github.com/V1odek" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;">github.com/V1odek</a></span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">LinkedIn</span>
-              <span class="info-val"><a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;">wojciech-nikiel</a></span>
-            </div>
+        <div class="reveal d2 contact-info-centered">
+          <div class="contact-item">
+            <span class="contact-item-key">Telefon</span>
+            <span class="contact-item-val"><a href="tel:+48792182911">+48 792 182 911</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-key">GitHub</span>
+            <span class="contact-item-val"><a href="https://github.com/V1odek" target="_blank" rel="noopener">github.com/V1odek</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item-key">LinkedIn</span>
+            <span class="contact-item-val"><a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">wojciech-nikiel</a></span>
           </div>
         </div>
       </div>
@@ -689,7 +706,6 @@
   </footer>
 
   <script>
-    // Prosty skrypt do animacji pojawiania się elementów przy przewijaniu
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -701,7 +717,6 @@
     
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Płynne przewijanie do sekcji
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
