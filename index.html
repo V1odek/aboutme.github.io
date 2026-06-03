@@ -11,8 +11,8 @@
 
   <style>
     :root {
-      --bg: #F3F4F6; /* Delikatnie szare tło strony, aby karty zyskały głębię */
-      --surface: #FFFFFF; /* Czysta biel kart */
+      --bg: #F3F4F6;
+      --surface: #FFFFFF;
       --text-main: #111827;
       --text-muted: #6B7280;
       --border: #E5E7EB;
@@ -126,22 +126,22 @@
       border-color: var(--text-muted);
       transform: translateY(-2px);
     }
- /* ── ZDJĘCIE & RYMOWANKA ── */
-   .photo-card {
+
+    /* ── ZDJĘCIE & RYMOWANKA ── */
+    .photo-card {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 250px;
-
       border-radius: var(--radius); 
-    
-      background-image: url('https://github.com/V1odek/aboutme.github.io/blob/94788b7d665abed7f30f558733efe4c74cd42f0c/zdj.jpg');
+      
+      /* KLUCZOWA ZMIANA: Prawidłowy link RAW do zdjęcia na GitHubie */
+      background-image: url('https://raw.githubusercontent.com/V1odek/aboutme.github.io/94788b7d665abed7f30f558733efe4c74cd42f0c/zdj.jpg');
       background-position: top center; 
       background-size: cover; 
       background-repeat: no-repeat;
     }
 
-  
     .photo-card.no-bg {
       background-image: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     }
@@ -151,7 +151,6 @@
       border-color: #BFDBFE;
       position: relative;
       overflow: hidden;
-     
       display: flex;
       align-items: center; 
     }
@@ -177,7 +176,6 @@
       line-height: 1.7;
       margin: 0; 
     }
-   
 
     /* ── SEKCJA O MNIE I DOŚWIADCZENIE ── */
     .section-label {
@@ -283,7 +281,7 @@
         </div>
       </div>
       
-      <div class="bento-card photo-card no-bg" style="background-image: url('photo.jpg');">
+      <div class="bento-card photo-card no-bg">
         </div>
     </div>
 
