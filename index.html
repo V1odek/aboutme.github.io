@@ -126,7 +126,57 @@
       border-color: var(--text-muted);
       transform: translateY(-2px);
     }
+ /* ── ZDJĘCIE & RYMOWANKA ── */
+   .photo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
 
+      border-radius: var(--radius); 
+    
+      background-image: url('zdj.jpg');
+      background-position: top center; 
+      background-size: cover; 
+      background-repeat: no-repeat;
+    }
+
+  
+    .photo-card.no-bg {
+      background-image: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    }
+
+    .rhyme-card {
+      background: var(--accent-light);
+      border-color: #BFDBFE;
+      position: relative;
+      overflow: hidden;
+     
+      display: flex;
+      align-items: center; 
+    }
+
+    .rhyme-card::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      right: 20px;
+      font-size: 8rem;
+      font-family: serif;
+      color: #DBEAFE;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    .rhyme-card p {
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #1E3A8A;
+      line-height: 1.7;
+      margin: 0; 
+    }
    
 
     /* ── SEKCJA O MNIE I DOŚWIADCZENIE ── */
