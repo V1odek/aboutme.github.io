@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wojciech Nikiel</title>
+  <title>Wojciech Nikiel - Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,16 +11,18 @@
 
   <style>
     :root {
-      --bg:      #f5f4f0;
-      --bg2:     #edecea;
-      --ink:     #1a1a18;
-      --ink2:    #4a4a46;
-      --ink3:    #9a9990;
-      --accent:  #1a3a2a;
-      --line:    #d8d6d0;
+      /* Nowa, czysta i estetyczna biała paleta */
+      --bg:      #ffffff; /* Czysta biel */
+      --bg2:     #f8f9fa; /* Bardzo jasny, chłodny szary pod tła */
+      --ink:     #0f172a; /* Głęboki, elegancki grafit zamiast smolistej czerni */
+      --ink2:    #475569; /* Przyjemny szary dla zwykłego tekstu */
+      --ink3:    #94a3b8; /* Jasnoszary dla detali i dat */
+      --accent:  #2563eb; /* Nowoczesny, techniczny niebieski akcent */
+      --line:    #e2e8f0; /* Delikatne linie oddzielające */
       --ff-mono: 'IBM Plex Mono', monospace;
       --ff-sans: 'IBM Plex Sans', sans-serif;
-      --max:     960px;
+      --max:     1000px;  /* Minimalnie szerszy kontener dla lepszego oddechu */
+      --radius:  6px;     /* Subtelne zaokrąglenia dla estetyki */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,8 +32,9 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--ff-sans);
-      font-weight: 300;
+      font-weight: 400; /* Zmiana na 400 dla lepszej czytelności na białym tle */
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased; /* Wygładzanie czcionek */
     }
 
     /* ── LAYOUT ── */
@@ -44,9 +47,10 @@
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: var(--bg);
+      background: rgba(255, 255, 255, 0.95); /* Lekka przezroczystość */
+      backdrop-filter: blur(8px); /* Rozmycie tła pod menu */
       border-bottom: 1px solid var(--line);
-      padding: 1rem 0;
+      padding: 1.2rem 0;
     }
     nav .wrap {
       display: flex;
@@ -55,111 +59,131 @@
     }
     .nav-logo {
       font-family: var(--ff-mono);
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.04em;
     }
+    .nav-logo span { color: var(--accent); }
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
     }
     .nav-links a {
       font-family: var(--ff-mono);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
-      color: var(--ink3);
+      color: var(--ink2);
       text-decoration: none;
-      transition: color 0.2s;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
     }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
     #hero {
-      padding: 6rem 0 5rem;
+      padding: 8rem 0 6rem;
       border-bottom: 1px solid var(--line);
     }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: end;
+      gap: 4rem;
+      align-items: center;
     }
     .hero-label {
       font-family: var(--ff-mono);
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--ink3);
+      color: var(--accent); /* Akcent kolorystyczny */
       margin-bottom: 1.2rem;
+      font-weight: 500;
     }
     .hero-name {
-      font-family: var(--ff-mono);
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-family: var(--ff-sans);
+      font-size: clamp(3rem, 6vw, 4.5rem);
       font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       color: var(--ink);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
     .hero-bio {
-      font-size: 1rem;
+      font-size: 1.05rem;
       color: var(--ink2);
-      max-width: 520px;
+      max-width: 580px;
       line-height: 1.8;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      font-style: italic; /* Kursywa dla rymowanki */
     }
     .hero-links {
       display: flex;
-      gap: 0.75rem;
+      gap: 1rem;
       flex-wrap: wrap;
     }
     .btn {
       font-family: var(--ff-mono);
-      font-size: 0.72rem;
+      font-size: 0.8rem;
       letter-spacing: 0.06em;
-      padding: 0.55rem 1.1rem;
-      border: 1px solid var(--ink);
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
       color: var(--ink);
       text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      transition: all 0.3s ease;
+      background: var(--bg);
     }
-    .btn:hover { background: var(--ink); color: var(--bg); }
-    .btn.primary { background: var(--ink); color: var(--bg); }
-    .btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+    .btn:hover { 
+      background: var(--bg2); 
+      border-color: var(--ink3);
+      transform: translateY(-2px);
+    }
+    .btn.primary { 
+      background: var(--ink); 
+      color: var(--bg); 
+      border-color: var(--ink); 
+    }
+    .btn.primary:hover { 
+      background: var(--accent); 
+      border-color: var(--accent); 
+      color: white;
+    }
 
     .hero-photo {
-      width: 140px;
-      height: 140px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 4px;
-      filter: grayscale(20%);
-      border: 1px solid var(--line);
+      border-radius: 50%; /* Zmiana na okrągłe zdjęcie dla miękkości */
+      filter: grayscale(10%);
+      border: 4px solid var(--bg2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
     /* ── SECTIONS ── */
-    section { padding: 5rem 0; border-bottom: 1px solid var(--line); }
+    section { padding: 6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 70px; }
     section:last-of-type { border-bottom: none; }
 
     .section-header {
       display: flex;
       align-items: baseline;
       gap: 1.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
     .section-num {
       font-family: var(--ff-mono);
-      font-size: 0.65rem;
+      font-size: 0.8rem;
       letter-spacing: 0.15em;
-      color: var(--ink3);
+      color: var(--accent);
+      font-weight: 500;
     }
     .section-title {
-      font-family: var(--ff-mono);
-      font-size: 1rem;
+      font-family: var(--ff-sans);
+      font-size: 1.5rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.02em;
       color: var(--ink);
     }
 
@@ -167,55 +191,67 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
     }
     .about-text p {
       color: var(--ink2);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
     }
-    .about-text p strong { color: var(--ink); font-weight: 500; }
+    .about-text p strong { 
+      color: var(--ink); 
+      font-weight: 600; 
+    }
 
     .tags {
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
     .tag {
       font-family: var(--ff-mono);
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       letter-spacing: 0.05em;
-      padding: 0.3rem 0.7rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px; /* Zaokrąglone tagi */
       border: 1px solid var(--line);
       color: var(--ink2);
-      background: var(--bg2);
+      background: var(--bg);
+      transition: background 0.3s;
     }
+    .tag:hover { background: var(--bg2); }
 
     .info-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      background: var(--bg2);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
     }
     .info-row {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      padding: 0.85rem 0;
-      border-bottom: 1px solid var(--line);
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px dashed var(--line);
       gap: 1rem;
     }
-    .info-row:first-child { border-top: 1px solid var(--line); }
+    .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .info-row:first-child { padding-top: 0; }
+    
     .info-key {
       font-family: var(--ff-mono);
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink3);
       flex-shrink: 0;
     }
     .info-val {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--ink);
       text-align: right;
     }
@@ -224,158 +260,122 @@
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      gap: 1.5rem; /* Zmiana z siatki liniowej na oddzielne karty */
     }
     .skill-cell {
-      padding: 1.5rem;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background 0.2s;
+      padding: 2rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     }
-    .skill-cell:hover { background: var(--bg2); }
+    .skill-cell:hover { 
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      border-color: var(--ink3);
+    }
     .skill-cat {
       font-family: var(--ff-mono);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--ink3);
-      margin-bottom: 0.4rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
     }
     .skill-name {
-      font-family: var(--ff-mono);
-      font-size: 0.88rem;
+      font-family: var(--ff-sans);
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 0.7rem;
+      margin-bottom: 1rem;
     }
     .skill-items {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
+      gap: 0.4rem;
     }
     .skill-items span {
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       color: var(--ink2);
-    }
-    .skill-items span:not(:last-child)::after {
-      content: ' ·';
-      color: var(--ink3);
+      background: var(--bg2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
     }
 
     /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; }
+    .exp-list { display: flex; flex-direction: column; gap: 2rem; }
     .exp-item {
       display: grid;
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: 220px 1fr;
       gap: 2rem;
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--line);
+      padding: 2rem;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: box-shadow 0.3s;
     }
-    .exp-item:first-child { border-top: 1px solid var(--line); }
-    .exp-meta {}
+    .exp-item:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
     .exp-org {
-      font-family: var(--ff-mono);
-      font-size: 0.8rem;
+      font-family: var(--ff-sans);
+      font-size: 1.1rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
     }
     .exp-type {
       font-family: var(--ff-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--ink3);
     }
     .exp-desc {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--ink2);
-      line-height: 1.75;
-      padding-top: 0.1rem;
+      line-height: 1.7;
+      margin-top: 0.5rem;
     }
     .exp-badge {
       display: inline-block;
       font-family: var(--ff-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      padding: 0.2rem 0.5rem;
-      background: var(--accent);
-      color: #fff;
-      margin-bottom: 0.6rem;
-    }
-
-    /* ── PROJECTS ── */
-    .projects-list { display: flex; flex-direction: column; }
-    .project-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 2rem;
-      padding: 1.8rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .project-item:first-child { border-top: 1px solid var(--line); }
-    .project-num {
-      font-family: var(--ff-mono);
       font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--ink3);
-      margin-bottom: 0.4rem;
-    }
-    .project-name {
-      font-family: var(--ff-mono);
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--ink);
-    }
-    .project-body {}
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--ink2);
-      line-height: 1.75;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.7rem;
+      background: #fef3c7; /* Delikatny złoty tło */
+      color: #92400e; /* Ciemniejszy złoty tekst */
+      border-radius: 20px;
       margin-bottom: 1rem;
-    }
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .project-stack span {
-      font-family: var(--ff-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.05em;
-      padding: 0.2rem 0.55rem;
-      border: 1px solid var(--line);
-      color: var(--ink3);
+      font-weight: 500;
     }
 
     /* ── CONTACT ── */
-    #contact { padding-bottom: 6rem; }
+    #contact { padding-bottom: 8rem; }
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      gap: 5rem;
+      align-items: center;
     }
     .contact-heading {
-      font-family: var(--ff-mono);
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-family: var(--ff-sans);
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.2;
       color: var(--ink);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
     .contact-sub {
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       color: var(--ink2);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       line-height: 1.7;
     }
 
     /* ── FOOTER ── */
     footer {
-      padding: 1.5rem 0;
+      padding: 2rem 0;
+      background: var(--bg2);
       border-top: 1px solid var(--line);
     }
     footer .wrap {
@@ -385,37 +385,38 @@
     }
     footer p {
       font-family: var(--ff-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
       color: var(--ink3);
     }
 
     /* ── REVEAL ── */
     .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.05s; }
-    .d2 { transition-delay: 0.12s; }
-    .d3 { transition-delay: 0.19s; }
-    .d4 { transition-delay: 0.26s; }
-    .d5 { transition-delay: 0.33s; }
-    .d6 { transition-delay: 0.40s; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+    .d6 { transition-delay: 0.6s; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    @media (max-width: 850px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
-      .exp-item, .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .nav-links { display: none; }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-photo { display: none; }
+      .hero-links { justify-content: center; }
+      .hero-bio { margin: 0 auto 2.5rem; }
       .skills-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
@@ -424,13 +425,12 @@
   <!-- NAV -->
   <nav>
     <div class="wrap">
-      <a class="nav-logo" href="#hero">WN</a>
+      <a class="nav-logo" href="#hero">Wojciech<span>Nikiel</span></a>
       <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#experience">experience</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="#about">O mnie</a></li>
+        <li><a href="#skills">Umiejętności</a></li>
+        <li><a href="#experience">Doświadczenie</a></li>
+        <li><a href="#contact">Kontakt</a></li>
       </ul>
     </div>
   </nav>
@@ -443,20 +443,20 @@
           <p class="hero-label">Mechatronics · RF · Embedded</p>
           <h1 class="hero-name">Wojciech<br/>Nikiel</h1>
           <p class="hero-bio">
-            Na krakowskim URK-u mechatronikę studiuję,
-            Od zawsze w kosmos i wielkie rakiety celuję.
-            Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,
-            Systemami RF i krótkofalarstwem się ekscytuję.
-            Projektuję płytki PCB, w embedded też mocno siedzę,
-            A dla znajomych? Jako Stańczyk i filozof szerzę wiedzę! ;)
+            Na krakowskim URK-u mechatronikę studiuję,<br>
+            Od zawsze w kosmos i wielkie rakiety celuję.<br>
+            Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
+            Systemami RF i krótkofalarstwem się ekscytuję.<br>
+            Projektuję płytki PCB, w embedded też mocno siedzę,<br>
+            A dla znajomych? Jako Stańczyk i filozof szerzę wiedzę! 😉
           </p>
           <div class="hero-links">
-            <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">Email</a>
+            <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">Napisz e-mail</a>
             <a class="btn" href="https://github.com/V1odek" target="_blank" rel="noopener">GitHub</a>
             <a class="btn" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn" href="tel:+48792182911">+48 792 182 911</a>
           </div>
         </div>
+        <!-- Upewnij się, że masz plik photo.jpg w tym samym folderze -->
         <img class="hero-photo" src="photo.jpg" alt="Wojciech Nikiel" />
       </div>
     </div>
@@ -467,21 +467,29 @@
     <div class="wrap">
       <div class="section-header reveal">
         <span class="section-num">01</span>
-        <span class="section-title">O mnie</span>
+        <h2 class="section-title">O mnie</h2>
       </div>
       <div class="about-grid">
         <div class="reveal d1">
           <div class="about-text">
             <p>
-              Angażuję się w projekty poza uczelnią — koło naukowe, startup.
-              Programuję w <strong>Pythonie i C++</strong>, projektuję w AutoCAD,
-              Fusion 360 i Altium Designer. W kole naukowym wykonuję symulacje
-              aerodynamiczne rakiet w <strong>ANSYS Fluent</strong>.
+              Angażuję się w projekty poza uczelnią — działam w kole naukowym oraz wspieram startup. Lubię wyzwania, które wymagają nieszablonowego myślenia.
             </p>
             <p>
-              Interesuję się krótkofalarstwem — zdany egzamin krótkofalowca,
-              eksperymenty z odbiorem sygnałów SDR. Gram na <strong>pianinie</strong>,
-              jestem aktywny fizycznie. Angielski na poziomie <strong>B2</strong>.
+              <strong>💻 Projektowanie i programowanie:</strong><br>
+              Programuję w Pythonie i C++, a projekty tworzę w AutoCAD, Fusion 360 i Altium Designer.
+            </p>
+            <p>
+              <strong>🚀 Inżynieria kosmiczna:</strong><br>
+              W ramach koła naukowego wykonuję symulacje aerodynamiczne rakiet w środowisku ANSYS Fluent.
+            </p>
+            <p>
+              <strong>📻 Radiokomunikacja:</strong><br>
+              Interesuję się krótkofalarstwem — posiadam zdany egzamin krótkofalowca i prowadzę eksperymenty z odbiorem sygnałów SDR.
+            </p>
+            <p>
+              <strong>🏃‍♂️ Po godzinach:</strong><br>
+              Gram na pianinie i jestem aktywny fizycznie (bieganie, rower, boks, pływanie). Posługuję się językiem angielskim na poziomie B2.
             </p>
           </div>
           <div class="tags">
@@ -531,12 +539,12 @@
     <div class="wrap">
       <div class="section-header reveal">
         <span class="section-num">02</span>
-        <span class="section-title">Umiejętności</span>
+        <h2 class="section-title">Umiejętności</h2>
       </div>
       <div class="skills-grid">
         <div class="skill-cell reveal d1">
           <div class="skill-cat">Programowanie</div>
-          <div class="skill-name">Languages</div>
+          <div class="skill-name">Języki</div>
           <div class="skill-items">
             <span>Python</span>
             <span>C++</span>
@@ -553,7 +561,7 @@
         </div>
         <div class="skill-cell reveal d3">
           <div class="skill-cat">EDA / PCB</div>
-          <div class="skill-name">Design</div>
+          <div class="skill-name">Projektowanie</div>
           <div class="skill-items">
             <span>Altium Designer</span>
             <span>KiCad</span>
@@ -561,7 +569,7 @@
         </div>
         <div class="skill-cell reveal d4">
           <div class="skill-cat">RF / Radio</div>
-          <div class="skill-name">Signal Processing</div>
+          <div class="skill-name">Sygnały</div>
           <div class="skill-items">
             <span>SDR</span>
             <span>GNU Radio</span>
@@ -570,15 +578,14 @@
         </div>
         <div class="skill-cell reveal d5">
           <div class="skill-cat">CAD</div>
-          <div class="skill-name">Modelling</div>
+          <div class="skill-name">Modelowanie</div>
           <div class="skill-items">
             <span>Fusion 360</span>
             <span>AutoCAD</span>
-            <span></span>
           </div>
         </div>
         <div class="skill-cell reveal d6">
-          <div class="skill-cat">Simulation</div>
+          <div class="skill-cat">Symulacje</div>
           <div class="skill-name">CFD</div>
           <div class="skill-items">
             <span>ANSYS Fluent</span>
@@ -593,7 +600,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <span class="section-num">03</span>
-        <span class="section-title">Doświadczenie</span>
+        <h2 class="section-title">Doświadczenie</h2>
       </div>
       <div class="exp-list">
         <div class="exp-item reveal d1">
@@ -603,11 +610,11 @@
           </div>
           <div>
             <div class="exp-desc">
-              Projektowanie płytek PCB w Altium Designer na potrzeby systemu
-              detekcji dronów opartego na analizie dźwięku.
+              Projektowanie płytek PCB w programie Altium Designer na potrzeby zaawansowanego systemu detekcji dronów, opartego na analizie dźwięku.
             </div>
           </div>
         </div>
+        
         <div class="exp-item reveal d2">
           <div class="exp-meta">
             <div class="exp-org">AGH Skylink / IPIE URK</div>
@@ -616,21 +623,19 @@
           <div>
             <span class="exp-badge">III miejsce 🏆</span>
             <div class="exp-desc">
-              Współudział w projekcie drona z napędem turboodrzutowym.
-              Odpowiedzialny za dokumentację techniczną i przygotowanie
-              prezentacji. Projekt nagrodzony III miejscem.
+              Współudział w projekcie innowacyjnego drona z napędem turboodrzutowym. Odpowiedzialny za tworzenie dokumentacji technicznej oraz przygotowanie prezentacji projektowej.
             </div>
           </div>
         </div>
+
         <div class="exp-item reveal d3">
           <div class="exp-meta">
             <div class="exp-org">Mobilne Centrum Badań</div>
-            <div class="exp-type"></div>
+            <div class="exp-type">Wsparcie Techniczne</div>
           </div>
           <div>
             <div class="exp-desc">
-              Wsparcie organizacyjne przy badaniach diagnostyczno-profilaktycznych:
-              obsługa pacjentów, logistyka, komunikacja.
+              Wsparcie organizacyjne oraz techniczne przy badaniach diagnostyczno-profilaktycznych. Odpowiedzialność za obsługę pacjentów, logistykę oraz sprawną komunikację.
             </div>
           </div>
         </div>
@@ -642,37 +647,32 @@
   <section id="contact">
     <div class="wrap">
       <div class="section-header reveal">
-        <span class="section-num">05</span>
-        <span class="section-title">Kontakt</span>
+        <span class="section-num">04</span>
+        <h2 class="section-title">Kontakt</h2>
       </div>
       <div class="contact-grid">
         <div class="reveal d1">
-          <h2 class="contact-heading">Porozmawiajmy.</h2>
+          <h3 class="contact-heading">Porozmawiajmy.</h3>
           <p class="contact-sub">
-            Otwarty na współpracę, staże i ciekawe projekty z obszaru mechatroniki,
-            systemów RF oraz embedded.
+            Jestem otwarty na współpracę, staże oraz ciekawe projekty z obszaru mechatroniki, systemów RF i rozwiązań embedded.
           </p>
           <div class="hero-links">
             <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">wojtek.nikiel73@gmail.com</a>
           </div>
         </div>
         <div class="reveal d2">
-          <div class="info-list">
+          <div class="info-list" style="background: transparent; border: none; padding: 0;">
             <div class="info-row">
               <span class="info-key">Telefon</span>
-              <span class="info-val"><a href="tel:+48792182911" style="color:inherit;text-decoration:none">+48 792 182 911</a></span>
+              <span class="info-val"><a href="tel:+48792182911" style="color:var(--accent);text-decoration:none;font-weight:600;">+48 792 182 911</a></span>
             </div>
             <div class="info-row">
               <span class="info-key">GitHub</span>
-              <span class="info-val"><a href="https://github.com/V1odek" target="_blank" rel="noopener" style="color:inherit">github.com/V1odek</a></span>
+              <span class="info-val"><a href="https://github.com/V1odek" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;">github.com/V1odek</a></span>
             </div>
             <div class="info-row">
               <span class="info-key">LinkedIn</span>
-              <span class="info-val"><a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener" style="color:inherit">wojciech-nikiel</a></span>
-            </div>
-            <div class="info-row">
-              <span class="info-key">Portfolio</span>
-              <span class="info-val"><a href="https://v1odek.github.io/aboutme.github.io/" target="_blank" rel="noopener" style="color:inherit">v1odek.github.io</a></span>
+              <span class="info-val"><a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;transition:color 0.2s;">wojciech-nikiel</a></span>
             </div>
           </div>
         </div>
@@ -689,6 +689,7 @@
   </footer>
 
   <script>
+    // Prosty skrypt do animacji pojawiania się elementów przy przewijaniu
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -696,9 +697,11 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
+    
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    // Płynne przewijanie do sekcji
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
