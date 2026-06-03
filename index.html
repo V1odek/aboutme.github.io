@@ -128,18 +128,20 @@
     }
 
     /* ── ZDJĘCIE & RYMOWANKA ── */
-    .photo-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 250px;
-      border-radius: var(--radius); 
-      
-      background-image: url('https://raw.githubusercontent.com/V1odek/aboutme.github.io/94788b7d665abed7f30f558733efe4c74cd42f0c/zdj.jpg');
-   
-      background-position: center; 
-      background-size: contain;    
-      background-repeat: no-repeat;
+            /* ── ZDJĘCIE & RYMOWANKA ── */
+.photo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  aspect-ratio: 3 / 4; /* dopasuj do proporcji zdjęcia */
+  border-radius: var(--radius); 
+  
+  background-image: url('https://raw.githubusercontent.com/V1odek/aboutme.github.io/94788b7d665abed7f30f558733efe4c74cd42f0c/zdj.jpg');
+
+  background-position: center top; 
+  background-size: contain;    
+  background-repeat: no-repeat;
     }
     
 
