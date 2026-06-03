@@ -1,1 +1,765 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wojciech Nikiel — Mechatronics & RF</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:      #f5f4f0;
+      --bg2:     #edecea;
+      --ink:     #1a1a18;
+      --ink2:    #4a4a46;
+      --ink3:    #9a9990;
+      --accent:  #1a3a2a;
+      --line:    #d8d6d0;
+      --ff-mono: 'IBM Plex Mono', monospace;
+      --ff-sans: 'IBM Plex Sans', sans-serif;
+      --max:     960px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+    }
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--ff-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--ink3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 6rem 0 5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: end;
+    }
+    .hero-label {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 1.2rem;
+    }
+    .hero-name {
+      font-family: var(--ff-mono);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero-bio {
+      font-size: 1rem;
+      color: var(--ink2);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .hero-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn:hover { background: var(--ink); color: var(--bg); }
+    .btn.primary { background: var(--ink); color: var(--bg); }
+    .btn.primary:hover { background: var(--accent); border-color: var(--accent); }
+
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 4px;
+      filter: grayscale(20%);
+      border: 1px solid var(--line);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .section-num {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--ink3);
+    }
+    .section-title {
+      font-family: var(--ff-mono);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .about-text p {
+      color: var(--ink2);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .about-text p strong { color: var(--ink); font-weight: 500; }
+
+    .tags {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--line);
+      color: var(--ink2);
+      background: var(--bg2);
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+      gap: 1rem;
+    }
+    .info-row:first-child { border-top: 1px solid var(--line); }
+    .info-key {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      flex-shrink: 0;
+    }
+    .info-val {
+      font-size: 0.88rem;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+    .skill-cell {
+      padding: 1.5rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.2s;
+    }
+    .skill-cell:hover { background: var(--bg2); }
+    .skill-cat {
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      margin-bottom: 0.4rem;
+    }
+    .skill-name {
+      font-family: var(--ff-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.7rem;
+    }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .skill-items span {
+      font-size: 0.75rem;
+      color: var(--ink2);
+    }
+    .skill-items span:not(:last-child)::after {
+      content: ' ·';
+      color: var(--ink3);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--line); }
+    .exp-meta {}
+    .exp-org {
+      font-family: var(--ff-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .exp-type {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink3);
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.75;
+      padding-top: 0.1rem;
+    }
+    .exp-badge {
+      display: inline-block;
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-list { display: flex; flex-direction: column; }
+    .project-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .project-item:first-child { border-top: 1px solid var(--line); }
+    .project-num {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--ink3);
+      margin-bottom: 0.4rem;
+    }
+    .project-name {
+      font-family: var(--ff-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .project-body {}
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .project-stack span {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--line);
+      color: var(--ink3);
+    }
+
+    /* ── CONTACT ── */
+    #contact { padding-bottom: 6rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-heading {
+      font-family: var(--ff-mono);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .contact-sub {
+      font-size: 0.9rem;
+      color: var(--ink2);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--ink3);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.05s; }
+    .d2 { transition-delay: 0.12s; }
+    .d3 { transition-delay: 0.19s; }
+    .d4 { transition-delay: 0.26s; }
+    .d5 { transition-delay: 0.33s; }
+    .d6 { transition-delay: 0.40s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .exp-item, .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="wrap">
+      <a class="nav-logo" href="#hero">WN</a>
+      <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-label">Mechatronics · RF · Embedded</p>
+          <h1 class="hero-name">Wojciech<br/>Nikiel</h1>
+          <p class="hero-bio">
+            Student III roku Inżynierii Mechatronicznej na URK w Krakowie.
+            Interesuję się systemami RF, projektowaniem PCB i programowaniem embedded.
+            Krótkofalowiec, konstruktor, człowiek od wyzwań.
+          </p>
+          <div class="hero-links">
+            <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">Email</a>
+            <a class="btn" href="https://github.com/V1odek" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="tel:+48792182911">+48 792 182 911</a>
+          </div>
+        </div>
+        <img class="hero-photo" src="photo.jpg" alt="Wojciech Nikiel" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <span class="section-title">O mnie</span>
+      </div>
+      <div class="about-grid">
+        <div class="reveal d1">
+          <div class="about-text">
+            <p>
+              Angażuję się w projekty poza uczelnią — koło naukowe, startup.
+              Programuję w <strong>Pythonie i C++</strong>, projektuję w AutoCAD,
+              Fusion 360 i Altium Designer. W kole naukowym wykonuję symulacje
+              aerodynamiczne rakiet w <strong>ANSYS Fluent</strong>.
+            </p>
+            <p>
+              Interesuję się krótkofalarstwem — zdany egzamin krótkofalowca,
+              eksperymenty z odbiorem sygnałów SDR. Gram na <strong>pianinie</strong>,
+              jestem aktywny fizycznie. Angielski na poziomie <strong>B2</strong>.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">📻 HAM Radio</span>
+            <span class="tag">🥊 Boks</span>
+            <span class="tag">🏊 Pływanie</span>
+            <span class="tag">🏃 Bieganie</span>
+            <span class="tag">🚴 Kolarstwo</span>
+            <span class="tag">🎹 Pianino</span>
+          </div>
+        </div>
+
+        <div class="reveal d2">
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-key">Uczelnia</span>
+              <span class="info-val">URK Kraków</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Kierunek</span>
+              <span class="info-val">Inżynieria Mechatroniczna</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Rok</span>
+              <span class="info-val">III (2023–obecnie)</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Angielski</span>
+              <span class="info-val">B2</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Uprawnienia</span>
+              <span class="info-val">SEP G1 · Prawo jazdy kat. B</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Lokalizacja</span>
+              <span class="info-val">Polska 🇵🇱</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <span class="section-title">Umiejętności</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-cell reveal d1">
+          <div class="skill-cat">Programowanie</div>
+          <div class="skill-name">Languages</div>
+          <div class="skill-items">
+            <span>Python</span>
+            <span>C++</span>
+          </div>
+        </div>
+        <div class="skill-cell reveal d2">
+          <div class="skill-cat">Hardware</div>
+          <div class="skill-name">Embedded</div>
+          <div class="skill-items">
+            <span>Arduino</span>
+            <span>Raspberry Pi</span>
+            <span>STM32</span>
+          </div>
+        </div>
+        <div class="skill-cell reveal d3">
+          <div class="skill-cat">EDA / PCB</div>
+          <div class="skill-name">Design</div>
+          <div class="skill-items">
+            <span>Altium Designer</span>
+            <span>KiCad</span>
+          </div>
+        </div>
+        <div class="skill-cell reveal d4">
+          <div class="skill-cat">RF / Radio</div>
+          <div class="skill-name">Signal Processing</div>
+          <div class="skill-items">
+            <span>SDR</span>
+            <span>GNU Radio</span>
+            <span>HAM Radio</span>
+          </div>
+        </div>
+        <div class="skill-cell reveal d5">
+          <div class="skill-cat">CAD</div>
+          <div class="skill-name">Modelling</div>
+          <div class="skill-items">
+            <span>Fusion 360</span>
+            <span>AutoCAD</span>
+            <span>Inventor</span>
+          </div>
+        </div>
+        <div class="skill-cell reveal d6">
+          <div class="skill-cat">Simulation</div>
+          <div class="skill-name">CFD</div>
+          <div class="skill-items">
+            <span>ANSYS Fluent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="section-num">03</span>
+        <span class="section-title">Doświadczenie</span>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item reveal d1">
+          <div class="exp-meta">
+            <div class="exp-org">SentiGuard</div>
+            <div class="exp-type">Startup · PCB Design</div>
+          </div>
+          <div>
+            <div class="exp-desc">
+              Projektowanie płytek PCB w Altium Designer na potrzeby systemu
+              detekcji dronów opartego na analizie dźwięku.
+            </div>
+          </div>
+        </div>
+        <div class="exp-item reveal d2">
+          <div class="exp-meta">
+            <div class="exp-org">AGH Skylink / IPIE URK</div>
+            <div class="exp-type">Koło Naukowe · UAV</div>
+          </div>
+          <div>
+            <span class="exp-badge">III miejsce 🏆</span>
+            <div class="exp-desc">
+              Współudział w projekcie drona z napędem turboodrzutowym.
+              Odpowiedzialny za dokumentację techniczną i przygotowanie
+              prezentacji. Projekt nagrodzony III miejscem.
+            </div>
+          </div>
+        </div>
+        <div class="exp-item reveal d3">
+          <div class="exp-meta">
+            <div class="exp-org">Mobilne Centrum Badań</div>
+            <div class="exp-type">Wolontariat · Logistyka</div>
+          </div>
+          <div>
+            <div class="exp-desc">
+              Wsparcie organizacyjne przy badaniach diagnostyczno-profilaktycznych:
+              obsługa pacjentów, logistyka, komunikacja.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="section-num">04</span>
+        <span class="section-title">Własne projekty</span>
+      </div>
+      <div class="projects-list">
+        <div class="project-item reveal d1">
+          <div>
+            <div class="project-num">PROJECT_01</div>
+            <div class="project-name">Radar &amp; RF</div>
+          </div>
+          <div class="project-body">
+            <div class="project-desc">
+              Eksperymenty z odbiorem sygnałów SDR, prototypowanie podstawowych
+              systemów radarowych. Implementacja bloków detekcji w środowisku GNU Radio.
+            </div>
+            <div class="project-stack">
+              <span>SDR</span><span>GNU Radio</span><span>Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-item reveal d2">
+          <div>
+            <div class="project-num">PROJECT_02</div>
+            <div class="project-name">UAV Systems</div>
+          </div>
+          <div class="project-body">
+            <div class="project-desc">
+              Projektowanie platform UAV — aerodynamika, dobór komponentów,
+              układy sterowania lotem, integracja avioniki. Symulacje CFD w ANSYS Fluent.
+            </div>
+            <div class="project-stack">
+              <span>Fusion 360</span><span>C++</span><span>PCB</span><span>ANSYS</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-item reveal d3">
+          <div>
+            <div class="project-num">PROJECT_03</div>
+            <div class="project-name">Embedded Systems</div>
+          </div>
+          <div class="project-body">
+            <div class="project-desc">
+              Projektowanie systemów wbudowanych i architektury mikrokontrolerów.
+              Projektowanie obwodów PCB, kod niskopoziomowy dla układów AVR/STM32.
+            </div>
+            <div class="project-stack">
+              <span>Altium</span><span>STM32</span><span>Arduino</span><span>Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <span class="section-num">05</span>
+        <span class="section-title">Kontakt</span>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal d1">
+          <h2 class="contact-heading">Porozmawiajmy.</h2>
+          <p class="contact-sub">
+            Otwarty na współpracę, staże i ciekawe projekty z obszaru mechatroniki,
+            systemów RF oraz embedded.
+          </p>
+          <div class="hero-links">
+            <a class="btn primary" href="mailto:wojtek.nikiel73@gmail.com">wojtek.nikiel73@gmail.com</a>
+          </div>
+        </div>
+        <div class="reveal d2">
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-key">Telefon</span>
+              <span class="info-val"><a href="tel:+48792182911" style="color:inherit;text-decoration:none">+48 792 182 911</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">GitHub</span>
+              <span class="info-val"><a href="https://github.com/V1odek" target="_blank" rel="noopener" style="color:inherit">github.com/V1odek</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">LinkedIn</span>
+              <span class="info-val"><a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener" style="color:inherit">wojciech-nikiel</a></span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Portfolio</span>
+              <span class="info-val"><a href="https://v1odek.github.io/aboutme.github.io/" target="_blank" rel="noopener" style="color:inherit">v1odek.github.io</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Wojciech Nikiel</p>
+      <p>Mechatronics &amp; RF · Poland</p>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+
+</body>
+</html>
