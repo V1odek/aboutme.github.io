@@ -3,340 +3,423 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wojciech Nikiel - Portfolio</title>
+  <title>Wojciech Nikiel | Mechatronics Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #F3F4F6;
-      --surface: #FFFFFF;
-      --text-main: #111827;
-      --text-muted: #6B7280;
-      --border: #E5E7EB;
-      --accent: #2563EB;
-      --accent-light: #EFF6FF;
-      
-      --ff-sans: 'Outfit', sans-serif;
-      --ff-mono: 'JetBrains Mono', monospace;
-      
-      --radius: 24px;
+      --bg: #f4f7f9;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --ink-muted: #475569;
+      --accent: #0052a3; /* NASA Blue */
+      --accent-light: #00a3b5;
+      --border: #e2e8f0;
+      --ff-condensed: 'Barlow Condensed', sans-serif;
+      --ff-body: 'Barlow', sans-serif;
+      --ff-mono: 'Share Tech Mono', monospace;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--bg);
-      color: var(--text-main);
-      font-family: var(--ff-sans);
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--ff-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding: 2rem 1rem;
+      overflow-x: hidden;
     }
 
-    /* ── LAYOUT GŁÓWNY ── */
+    /* Technical Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
     .container {
       max-width: 1100px;
       margin: 0 auto;
+      padding: 2rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1px; /* Hairline grid effect */
+      background: var(--border); /* Creates the lines between sections */
     }
 
-    /* ── KARTY BENTO (Wspólne style) ── */
-    .bento-card {
+    /* Common Components */
+    .section-card {
       background: var(--surface);
-      border-radius: var(--radius);
       padding: 2.5rem;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
-      transition: var(--transition);
-    }
-    .bento-card:hover {
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-      border-color: #D1D5DB;
+      position: relative;
     }
 
-    /* ── UKŁAD SIATKI (BENTO GRID) ── */
-    .grid-hero {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1.5rem;
-    }
-    .grid-about {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 1.5rem;
-    }
-    .grid-skills {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    /* ── HERO SEKCJA ── */
-    .hero-text h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.5rem;
-    }
-    .hero-text h2 {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      margin-bottom: 2rem;
-    }
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: 99px;
+    .label {
       font-family: var(--ff-mono);
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .btn-primary {
-      background: var(--text-main);
-      color: white;
-    }
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      color: var(--text-main);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover {
-      background: var(--bg);
-      border-color: var(--text-muted);
-      transform: translateY(-2px);
-    }
-
-
-    /* ── SEKCJA O MNIE I DOŚWIADCZENIE ── */
-    .section-label {
-      font-family: var(--ff-mono);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: var(--accent);
       margin-bottom: 1.5rem;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .label::before {
+      content: '>>';
+      font-weight: bold;
+    }
+
+    /* Top Navigation Bar */
+    .status-bar {
+      background: var(--ink);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    .status-active {
+      color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-light);
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      min-height: 450px;
+    }
+
+    .hero-content {
+      background: var(--surface);
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-pretitle {
+      font-family: var(--ff-mono);
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-family: var(--ff-condensed);
+      font-size: clamp(3rem, 8vw, 5.5rem);
       font-weight: 700;
+      line-height: 0.85;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name span { color: var(--accent); }
+
+    .hero-tags {
+      display: flex;
+      gap: 1rem;
+      font-family: var(--ff-mono);
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-photo {
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.1);
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+
+    .hero-photo:hover img {
+      filter: grayscale(0%) contrast(1);
+      opacity: 1;
+    }
+
+    /* Buttons */
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-family: var(--ff-mono);
+      font-size: 0.75rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid var(--accent);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--ink); border-color: var(--ink); }
+    .btn-secondary { color: var(--ink); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Experience & About */
+    .grid-2col { display: grid; grid-template-columns: 1fr 1.5fr; }
+    
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
     }
     
-    .about-list p { margin-bottom: 1rem; color: var(--text-muted); }
-    .about-list strong { color: var(--text-main); font-weight: 600; }
-    
+    .data-label { font-family: var(--ff-mono); color: var(--ink-muted); font-size: 0.75rem; }
+
     .exp-item {
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
       border-bottom: 1px solid var(--border);
     }
-    .exp-item:last-child { border: none; margin: 0; padding: 0; }
-    
+    .exp-item:last-child { border: 0; margin: 0; padding: 0; }
+
     .exp-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: flex-start;
       margin-bottom: 0.5rem;
     }
-    .exp-title { font-weight: 600; font-size: 1.1rem; }
-    .exp-date { font-family: var(--ff-mono); font-size: 0.75rem; color: var(--text-muted); }
-    .exp-desc { font-size: 0.95rem; color: var(--text-muted); }
-    
-    .badge {
-      display: inline-block;
-      background: #FEF3C7;
-      color: #92400E;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-    }
 
-    /* ── UMIEJĘTNOŚCI ── */
-    .skill-group h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .tag {
+    .exp-title { font-family: var(--ff-condensed); font-weight: 600; font-size: 1.2rem; text-transform: uppercase; }
+    .exp-badge {
       font-family: var(--ff-mono);
-      font-size: 0.75rem;
-      padding: 0.4rem 0.75rem;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text-main);
     }
 
-    /* ── STOPKA ── */
-    footer {
-      text-align: center;
-      padding: 2rem 0;
+    /* Skills */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-box {
+      padding: 2rem;
+      background: var(--surface);
+    }
+
+    .skill-box h3 {
+      font-family: var(--ff-condensed);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
       font-family: var(--ff-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .tag:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+
+    /* Mission Statement */
+    .mission {
+      background: var(--ink);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 5rem 2rem;
     }
 
-    /* ── RESPONSIVNESS ── */
-    @media (max-width: 900px) {
-      .grid-hero, .grid-about { grid-template-columns: 1fr; }
-      .grid-skills { grid-template-columns: repeat(2, 1fr); }
-      .photo-card { min-height: 200px; }
+    .mission p {
+      font-family: var(--ff-condensed);
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    @media (max-width: 600px) {
-      .grid-skills { grid-template-columns: 1fr; }
-      .bento-card { padding: 1.5rem; }
-      .hero-text h1 { font-size: 2.2rem; }
-      .exp-header { flex-direction: column; gap: 0.25rem; }
+
+    /* Footer */
+    footer {
+      background: var(--ink);
+      padding: 2rem;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Animations */
+    [data-aos="fade-up"] {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero, .grid-2col, .skills-container { grid-template-columns: 1fr; }
+      .hero-photo { min-height: 350px; order: -1; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-
-    <div class="grid-hero">
-      <div class="bento-card hero-text">
-        <span class="section-label">Portfolio</span>
-        <h1>Wojciech Nikiel</h1>
-        <h2>Inżynieria Mechatroniczna · Systemy RF · Embedded</h2>
-        
-        <div class="social-links">
-          <a href="mailto:wojtek.nikiel73@gmail.com" class="btn btn-primary">wojtek.nikiel73@gmail.com</a>
-          <a href="https://github.com/V1odek" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
-          <a href="https://www.linkedin.com/in/wojciech-nikiel-9949632b0/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
-        </div>
-      </div>
-      
-      <div class="bento-card photo-card no-bg">
-        </div>
+<div class="container">
+  
+  <!-- STATUS BAR -->
+  <header class="status-bar">
+    <div>SYSTEM: WN_PORTFOLIO_V3.0.26</div>
+    <div class="status-active">
+      <span class="dot"></span> STATUS: OPEN FOR PROJECTS
     </div>
+  </header>
 
-    <div class="bento-card rhyme-card">
-      <p>
-        Na krakowskim URK-u mechatronikę studiuję,<br>
-        od zawsze w kosmos i wielkie rakiety celuję.<br>
-        Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
-        systemami RF i krótkofalarstwem się ekscytuję.<br>
-        Projektuję płytki PCB, w embedded twardo siedzę,<br>
-        a dla znajomych? Jako Stańczyk-filozof szerzę wiedzę! 😉
+  <!-- HERO SECTION -->
+  <main class="hero">
+    <section class="hero-content">
+      <div class="hero-pretitle">// ENGINEERING DOSSIER</div>
+      <h1 class="hero-name">Wojciech<br><span>Nikiel</span></h1>
+      <div class="hero-tags">
+        <span>MECHATRONICS</span> • <span>RF SYSTEMS</span> • <span>EMBEDDED</span>
+      </div>
+      <div class="btn-group">
+        <a href="mailto:wojtek.nikiel73@gmail.com" class="btn btn-primary">
+          Send Transmission
+        </a>
+        <a href="https://github.com/V1odek" target="_blank" class="btn btn-secondary">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      </div>
+    </section>
+    <section class="hero-photo">
+      <img src="https://raw.githubusercontent.com/V1odek/aboutme.github.io/94788b7d665abed7f30f558733efe4c74cd42f0c/zdj.jpg" alt="Wojciech Nikiel Portrait">
+    </section>
+  </main>
+
+  <!-- BIO & EXPERIENCE -->
+  <div class="grid-2col">
+    <section class="section-card">
+      <div class="label">O mnie / Profile</div>
+      <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--ink-muted);">
+        Student mechatroniki zafascynowany systemami wbudowanymi i technologiami kosmicznymi. Łączę wiedzę akademicką z praktyką w startupach i kołach naukowych.
       </p>
-    </div>
+      <div class="data-table">
+        <div class="data-row"><span class="data-label">INSTYTUCJA</span><span>URK KRAKÓW</span></div>
+        <div class="data-row"><span class="data-label">ROK</span><span>III (INŻ)</span></div>
+        <div class="data-row"><span class="data-label">LOKALIZACJA</span><span>KRAKÓW, PL</span></div>
+        <div class="data-row"><span class="data-label">JĘZYK</span><span>ANGIELSKI (B2)</span></div>
+      </div>
+    </section>
 
-    <div class="grid-about">
-      <div class="bento-card">
-        <span class="section-label">O mnie</span>
-        <div class="about-list">
-          <p>Angażuję się w projekty poza uczelnią — działam w kole naukowym oraz wspieram startup. Lubię wyzwania, które wymagają nieszablonowego myślenia.</p>
-          <p><strong>Uczelnia:</strong> URK Kraków, III rok (2023–obecnie)</p>
-          <p><strong>Języki:</strong> Angielski B2</p>
-          <p><strong>Uprawnienia:</strong> SEP G1, Prawo jazdy kat. B</p>
-          <p><strong>Po godzinach:</strong> 📻 HAM Radio, 🥊 Boks, 🏊 Pływanie, 🏃 Bieganie, 🚴 Kolarstwo, 🎹 Pianino.</p>
+    <section class="section-card" style="border-left: 1px solid var(--border);">
+      <div class="label">Doświadczenie / Log</div>
+      
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">SentiGuard / Startup</div>
+          <span class="exp-badge">PCB DESIGN</span>
         </div>
+        <p style="font-size: 0.9rem; color: var(--ink-muted);">Projektowanie zaawansowanych płytek PCB w Altium Designer dla systemów detekcji akustycznej.</p>
       </div>
 
-      <div class="bento-card">
-        <span class="section-label">Doświadczenie</span>
-        
-        <div class="exp-item">
-          <div class="exp-header">
-            <div class="exp-title">SentiGuard</div>
-            <div class="exp-date">STARTUP</div>
-          </div>
-          <div class="exp-desc">
-            Projektowanie płytek PCB w Altium Designer na potrzeby systemu detekcji dronów opartego na analizie dźwięku.
-          </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">AGH Skylink / IPIE URK</div>
+          <span class="exp-badge" style="color: var(--accent-light); border-color: var(--accent-light);">III MIEJSCE</span>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div class="exp-title">AGH Skylink / IPIE URK</div>
-            <div class="exp-date">KOŁO NAUKOWE</div>
-          </div>
-          <div class="exp-desc">
-            Współudział w projekcie drona z napędem turboodrzutowym. Odpowiedzialny za dokumentację techniczną i przygotowanie prezentacji.
-          </div>
-          <div class="badge">🏆 III miejsce</div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div class="exp-title">Mobilne Centrum Badań</div>
-            <div class="exp-date">WSPARCIE</div>
-          </div>
-          <div class="exp-desc">
-            Wsparcie organizacyjne przy badaniach diagnostyczno-profilaktycznych (obsługa pacjentów, logistyka, komunikacja).
-          </div>
-        </div>
+        <p style="font-size: 0.9rem; color: var(--ink-muted);">Prace nad dronem turboodrzutowym – od dokumentacji technicznej po analizy inżynieryjne.</p>
       </div>
-    </div>
-
-    <div class="bento-card">
-      <span class="section-label">Stack Technologiczny</span>
-      <div class="grid-skills">
-        
-        <div class="skill-group">
-          <h3>Programowanie & Embedded</h3>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">C++</span>
-            <span class="tag">Arduino</span>
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">STM32</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>Projektowanie & CAD</h3>
-          <div class="tags">
-            <span class="tag">Altium Designer</span>
-            <span class="tag">KiCad</span>
-            <span class="tag">Fusion 360</span>
-            <span class="tag">AutoCAD</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3>RF, Symulacje & Inne</h3>
-          <div class="tags">
-            <span class="tag">SDR</span>
-            <span class="tag">GNU Radio</span>
-            <span class="tag">ANSYS Fluent</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2026 Wojciech Nikiel. Stworzono z pasją.</p>
-    </footer>
-
+    </section>
   </div>
+
+  <!-- TECH STACK -->
+  <section class="skills-container">
+    <div class="skill-box">
+      <h3>Software & Dev</h3>
+      <div class="tag-cloud">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Arduino</span><span class="tag">STM32</span>
+      </div>
+    </div>
+    <div class="skill-box" style="border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+      <h3>Design & CAD</h3>
+      <div class="tag-cloud">
+        <span class="tag">Altium Designer</span><span class="tag">Fusion 360</span><span class="tag">KiCad</span><span class="tag">AutoCAD</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <h3>RF & Simulation</h3>
+      <div class="tag-cloud">
+        <span class="tag">SDR</span><span class="tag">GNU Radio</span><span class="tag">ANSYS Fluent</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION STATEMENT -->
+  <section class="mission">
+    <div class="label" style="color: var(--accent-light); justify-content: center;">Mission Statement</div>
+    <p>
+      "Na krakowskim URK-u mechatronikę studiuję,<br>
+      od zawsze w kosmos i wielkie rakiety celuję.<br>
+      Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
+      systemami RF i krótkofalarstwem się ekscytuję."
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 WOJCIECH NIKIEL</span>
+    <span>COORD: 50.0647° N, 19.9450° E</span>
+    <span>BUILT FOR PERFORMANCE</span>
+  </footer>
+
+</div>
 
 </body>
 </html>
