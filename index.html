@@ -401,23 +401,163 @@
     </div>
   </section>
 
-  <!-- MISSION STATEMENT -->
-  <section class="mission">
-    <div class="label" style="color: var(--accent-light); justify-content: center;">Mission Statement</div>
-    <p>
-      "Na krakowskim URK-u mechatronikę studiuję,<br>
-      od zawsze w kosmos i wielkie rakiety celuję.<br>
-      Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
-      systemami RF i krótkofalarstwem się ekscytuję."
-    </p>
-  </section>
+<!-- MISSION STATEMENT -->
+<section class="mission">
+  <div class="label" style="color: var(--accent-light); justify-content: center; display: flex;">Mission Statement</div>
+  <p class="mission-text">
+    Na krakowskiej uczelni mechatronikę studiuję,<br>
+    od zawsze w kosmos i wielkie rakiety celuję.<br>
+    Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
+    systemami RF i krótkofalarstwem się ekscytuję.<br>
+    <span class="mission-punchline">Jednak gdy idealna teoria zderza się z kaprysami sprzętu, wchodzi krakowska szkoła filozofii: jako nadworny Stańczyk bez paniki estymuję ryzyko, siadam do konsoli i... zaczynam gotować! 😉</span>
+  </p>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 WOJCIECH NIKIEL</span>
-    <span>COORD: 50.0609° N, 19.9377° E</span>
-    <span>BUILT FOR PERFORMANCE</span>
-  </footer>
+<!-- QUOTES ROTATOR -->
+<section class="quotes-section">
+  <div class="quotes-wrapper">
+    <div class="quote-item active">
+      <p class="quote-text">„Dziś robię to, czego inni nie chcą, jutro będę robić to, czego inni nie potrafią.”</p>
+      <p class="quote-author">– Cristiano Ronaldo</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Przyszłość zaczyna się dzisiaj, nie jutro.”</p>
+      <p class="quote-author">– Jan Paweł II</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Nie jestem doskonały, ale lubię czuć, że daję z siebie wszystko.”</p>
+      <p class="quote-author">– Cristiano Ronaldo</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Musicie od siebie wymagać, nawet gdyby inni od was nie wymagali.”</p>
+      <p class="quote-author">– Jan Paweł II</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Może i jestem dzbanem, ale ze złota. Każda porażka to drogocenne spoiwo, dzięki któremu po rozbiciu mam jeszcze większą wartość.”</p>
+      <p class="quote-author">– Wojciech Nikiel</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Wszyscy wiedzą, że czegoś nie da się zrobić, aż pojawia się taki jeden, który nie wie, że się nie da, i on to robi.”</p>
+      <p class="quote-author">– Albert Einstein</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Ekspert to człowiek, który popełnił wszystkie możliwe błędy w bardzo wąskiej dziedzinie.”</p>
+      <p class="quote-author">– Niels Bohr</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Nasza skłonność do krytykowania teorii dopiero wtedy, gdy wejdą w konflikt z rzeczywistością, jest cechą ludzką.”</p>
+      <p class="quote-author">– Nassim Nicholas Taleb</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Prawdziwy sukces to wyjście z wyścigu szczurów po to, by regulować swoje działania według własnych, a nie cudzych standardów.”</p>
+      <p class="quote-author">– Nassim Nicholas Taleb</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Eksperymentowanie i próby są warte znacznie więcej niż teorie akademickie.”</p>
+      <p class="quote-author">– Nassim Nicholas Taleb</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">„Gdy Bóg jest na pierwszym miejscu, wszystko inne jest na właściwym miejscu.”</p>
+      <p class="quote-author">– św. Augustyn</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 WOJCIECH NIKIEL</span>
+  <span>COORD: 50.0609° N, 19.9377° E</span>
+  <span>BUILT FOR PERFORMANCE</span>
+</footer>
+
+<!-- CSS STYLES (Dodaj do swojego pliku CSS) -->
+<style>
+  .mission-text {
+    text-align: center;
+    line-height: 1.6;
+    margin-top: 15px;
+  }
+  .mission-punchline {
+    display: block;
+    margin-top: 15px;
+    font-style: italic;
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+  
+  /* Style karuzeli cytatów */
+  .quotes-section {
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px; /* Zapobiega skakaniu layoutu przy różnych długościach */
+    background: rgba(255, 255, 255, 0.02); /* Lekkie wyróżnienie tła przed footerem */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .quotes-wrapper {
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+  .quote-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  .quote-item.active {
+    display: block;
+    opacity: 1;
+  }
+  .quote-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+  }
+  .quote-author {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-light);
+    margin: 0;
+  }
+</style>
+
+<!-- JAVASCRIPT (Dodaj na dole dokumentu przed tagiem </body>) -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const quotes = document.querySelectorAll('.quote-item');
+    let currentQuoteIndex = 0;
+    const changeInterval = 5000; // Zmiana cytatu co 5 sekund
+
+    function changeQuote() {
+      // Płynne wygaszanie obecnego cytatu
+      quotes[currentQuoteIndex].style.opacity = 0;
+      
+      setTimeout(() => {
+        quotes[currentQuoteIndex].classList.remove('active');
+        
+        // Przejście do kolejnego indeksu
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        
+        // Aktywacja nowego cytatu
+        quotes[currentQuoteIndex].classList.add('active');
+        
+        // Wymuszenie reflow dla płynnej animacji opacity
+        void quotes[currentQuoteIndex].offsetWidth; 
+        quotes[currentQuoteIndex].style.opacity = 1;
+      }, 600); // Czas trwania animacji fade-out zgodny z CSS
+    }
+
+    // Uruchomienie pętli, jeśli na stronie są cytaty
+    if(quotes.length > 1) {
+      setInterval(changeQuote, changeInterval);
+    }
+  });
+</script>
 
 </div>
 
