@@ -401,20 +401,10 @@
     </div>
   </section>
 
-<!-- MISSION STATEMENT -->
+<!-- MISSION STATEMENT / QUOTES -->
 <section class="mission">
-  <div class="label" style="color: var(--accent-light); justify-content: center; display: flex;">Mission Statement</div>
-  <p class="mission-text">
-    Na krakowskiej uczelni mechatronikę studiuję,<br>
-    od zawsze w kosmos i wielkie rakiety celuję.<br>
-    Gdy w ANSYS-ie aerodynamikę sprawnie symuluję,<br>
-    systemami RF i krótkofalarstwem się ekscytuję.<br>
-    <span class="mission-punchline">Jednak gdy idealna teoria zderza się z kaprysami sprzętu, wchodzi krakowska szkoła filozofii: jako nadworny Stańczyk bez paniki estymuję ryzyko, siadam do konsoli i... zaczynam gotować! 😉</span>
-  </p>
-</section>
-
-<!-- QUOTES ROTATOR -->
-<section class="quotes-section">
+  <div class="label" style="color: var(--accent-light); justify-content: center; display: flex; margin-bottom: 20px;">Mission Statement</div>
+  
   <div class="quotes-wrapper">
     <div class="quote-item active">
       <p class="quote-text">„Dziś robię to, czego inni nie chcą, jutro będę robić to, czego inni nie potrafią.”</p>
@@ -470,89 +460,79 @@
   <span>BUILT FOR PERFORMANCE</span>
 </footer>
 
-<!-- CSS STYLES (Dodaj do swojego pliku CSS) -->
+<!-- CSS STYLES -->
 <style>
-  .mission-text {
-    text-align: center;
-    line-height: 1.6;
-    margin-top: 15px;
-  }
-  .mission-punchline {
-    display: block;
-    margin-top: 15px;
-    font-style: italic;
-    color: var(--accent-light);
-    font-weight: 500;
+  .mission {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 160px; /* Zapobiega skakaniu reszty strony przy zmianie długości tekstu */
   }
   
-  /* Style karuzeli cytatów */
-  .quotes-section {
-    padding: 30px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 120px; /* Zapobiega skakaniu layoutu przy różnych długościach */
-    background: rgba(255, 255, 255, 0.02); /* Lekkie wyróżnienie tła przed footerem */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
   .quotes-wrapper {
-    max-width: 600px;
+    max-width: 650px;
     text-align: center;
     position: relative;
     width: 100%;
   }
+  
   .quote-item {
     display: none;
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
   }
+  
   .quote-item.active {
     display: block;
     opacity: 1;
   }
+  
   .quote-text {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-style: italic;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #f0f0f0;
   }
+  
   .quote-author {
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     color: var(--accent-light);
     margin: 0;
+    font-weight: 600;
   }
 </style>
 
-<!-- JAVASCRIPT (Dodaj na dole dokumentu przed tagiem </body>) -->
+<!-- JAVASCRIPT -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const quotes = document.querySelectorAll('.quote-item');
     let currentQuoteIndex = 0;
-    const changeInterval = 5000; // Zmiana cytatu co 5 sekund
+    const changeInterval = 5000; // Czas wyświetlania jednego cytatu (5 sekund)
 
     function changeQuote() {
-      // Płynne wygaszanie obecnego cytatu
+      if(quotes.length === 0) return;
+      
+      // Płynne zniknięcie
       quotes[currentQuoteIndex].style.opacity = 0;
       
       setTimeout(() => {
         quotes[currentQuoteIndex].classList.remove('active');
         
-        // Przejście do kolejnego indeksu
+        // Następny cytat
         currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
         
-        // Aktywacja nowego cytatu
         quotes[currentQuoteIndex].classList.add('active');
         
-        // Wymuszenie reflow dla płynnej animacji opacity
+        // Wymuszenie odświeżenia stylów i płynne pojawienie
         void quotes[currentQuoteIndex].offsetWidth; 
         quotes[currentQuoteIndex].style.opacity = 1;
-      }, 600); // Czas trwania animacji fade-out zgodny z CSS
+      }, 600); // Czas dopasowany do transition w CSS
     }
 
-    // Uruchomienie pętli, jeśli na stronie są cytaty
     if(quotes.length > 1) {
       setInterval(changeQuote, changeInterval);
     }
